@@ -1,7 +1,7 @@
 const WhatsAppFAB = () => {
   return (
     <a
-      href="https://wa.me/91XXXXXXXXXX"
+      href="https://wa.me/919XXXXXXXXX"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed right-6 bottom-6 z-[9997] w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110"
@@ -10,7 +10,6 @@ const WhatsAppFAB = () => {
         boxShadow: '0 4px 20px rgba(37,211,102,0.4)',
       }}
     >
-      {/* Pulse ring */}
       <span
         className="absolute inset-0 rounded-full animate-pulse-ring"
         style={{ border: '2px solid rgba(37,211,102,0.4)' }}
