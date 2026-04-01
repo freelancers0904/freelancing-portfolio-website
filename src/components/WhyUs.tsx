@@ -49,10 +49,10 @@ const PhoneMockup = () => {
     }}>
       {/* Status bar */}
       <div className="flex justify-between items-center px-5 h-11">
-        <span className="font-body font-semibold text-xs text-agency-text">9:41</span>
+        <span className="font-body font-semibold text-xs text-white">9:41</span>
         <div className="flex gap-1.5">
-          <svg width="14" height="10" viewBox="0 0 14 10" fill="#F0EEF9"><rect x="0" y="6" width="3" height="4" rx="0.5"/><rect x="4" y="4" width="3" height="6" rx="0.5"/><rect x="8" y="1" width="3" height="9" rx="0.5"/></svg>
-          <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><rect x="0.5" y="0.5" width="14" height="9" rx="1.5" stroke="#F0EEF9" strokeWidth="1"/><rect x="2" y="2" width="8" height="6" rx="0.5" fill="#F0EEF9"/><rect x="15" y="3" width="1" height="4" rx="0.5" fill="#F0EEF9"/></svg>
+          <svg width="14" height="10" viewBox="0 0 14 10" fill="white"><rect x="0" y="6" width="3" height="4" rx="0.5"/><rect x="4" y="4" width="3" height="6" rx="0.5"/><rect x="8" y="1" width="3" height="9" rx="0.5"/></svg>
+          <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><rect x="0.5" y="0.5" width="14" height="9" rx="1.5" stroke="white" strokeWidth="1"/><rect x="2" y="2" width="8" height="6" rx="0.5" fill="white"/><rect x="15" y="3" width="1" height="4" rx="0.5" fill="white"/></svg>
         </div>
       </div>
 
@@ -71,7 +71,7 @@ const PhoneMockup = () => {
           i < visibleCount && (
             <div key={i} className="animate-message-in" style={{ animationDelay: `${i * 0.15}s`, alignSelf: msg.type === 'outgoing' ? 'flex-end' : 'flex-start' }}>
               <div className="px-3.5 py-2.5 max-w-[85%]" style={{
-                background: msg.type === 'outgoing' ? 'linear-gradient(135deg, #6C63FF, #5952E8)' : '#1F2C34',
+                background: msg.type === 'outgoing' ? 'linear-gradient(135deg, hsl(36, 95%, 55%), hsl(36, 95%, 45%))' : '#1F2C34',
                 borderRadius: msg.type === 'outgoing' ? '16px 16px 0 16px' : '0 16px 16px 16px',
               }}>
                 <p className="font-body text-[13px] text-white">{msg.text}</p>
@@ -108,28 +108,28 @@ const WhyUs = () => {
   ];
 
   return (
-    <section className="py-28 md:py-32" style={{ background: '#0D0D0D' }}>
+    <section className="py-28 md:py-32 bg-secondary">
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[55%_45%] gap-16 items-center">
         <div>
           <span className="scroll-hidden font-body font-semibold text-xs tracking-[2px] text-primary uppercase">WHY US?</span>
           <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[52px] leading-tight tracking-[-0.03em] mt-4">
-            <span className="text-agency-text">Other agencies take weeks.</span><br />
-            <span className="text-agency-text">We launch in </span>
+            <span className="text-foreground">Other agencies take weeks.</span><br />
+            <span className="text-foreground">We launch in </span>
             <span className="text-primary relative">
               days.
               <svg className="absolute -bottom-1 left-0 w-full" height="8" viewBox="0 0 100 8" fill="none">
-                <path d="M2 6C30 2 60 8 98 4" stroke="#6C63FF" strokeWidth="2" strokeLinecap="round" strokeDasharray="100" className="animate-draw-line" />
+                <path d="M2 6C30 2 60 8 98 4" stroke="hsl(36, 95%, 55%)" strokeWidth="2" strokeLinecap="round" strokeDasharray="100" className="animate-draw-line" />
               </svg>
             </span>
           </h2>
-          <p className="scroll-hidden font-body text-base text-agency-text-secondary leading-[1.8] mt-6 max-w-[460px]">
+          <p className="scroll-hidden font-body text-base text-muted-foreground leading-[1.8] mt-6 max-w-[460px]">
             Most web agencies juggle 10 clients at once. We are a focused 2-person team — which means when you work with us, you get our full attention, fast execution, and direct communication. No project managers. No delays. No excuses.
           </p>
           <div className="scroll-hidden mt-9 space-y-4">
             {diffs.map((d, i) => (
-              <div key={i} className="flex items-center gap-3.5 pl-4" style={{ borderLeft: '2px solid #6C63FF' }}>
+              <div key={i} className="flex items-center gap-3.5 pl-4 border-l-2 border-primary">
                 <span className="text-base">{d.emoji}</span>
-                <span className="font-body font-medium text-[15px] text-agency-text">{d.text}</span>
+                <span className="font-body font-medium text-[15px] text-foreground">{d.text}</span>
               </div>
             ))}
           </div>
