@@ -7,31 +7,31 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: '#080808' }}>
-      {/* Violet glow */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'var(--hero-bg, #001020)' }}>
+      {/* Gold glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 700px 500px at 50% 40%, rgba(108,99,255,0.12) 0%, transparent 70%)'
+        background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)'
       }} />
-      {/* Teal glow */}
+      {/* Navy glow bottom-right */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 400px 300px at 10% 90%, rgba(0,212,170,0.07) 0%, transparent 70%)'
+        background: 'radial-gradient(ellipse 400px 300px at 90% 90%, rgba(0,35,73,0.8) 0%, transparent 70%)'
       }} />
       {/* Light beam */}
       <div className="absolute w-[60%] left-1/2 -translate-x-1/2 top-[45%] h-[1px] animate-light-beam" style={{
-        background: 'linear-gradient(90deg, transparent, rgba(108,99,255,0.3), transparent)'
+        background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)'
       }} />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {/* Badge */}
         <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-10 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           style={{
-            background: 'rgba(108,99,255,0.1)',
-            border: '1px solid rgba(108,99,255,0.3)',
+            background: 'rgba(201,168,76,0.1)',
+            border: '1px solid rgba(201,168,76,0.3)',
             transitionDelay: '0.2s',
           }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse-dot" />
-          <span className="font-body font-medium text-[13px] text-primary">⚡ Websites Delivered in 3–5 Days</span>
+          <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ background: '#C9A84C' }} />
+          <span className="font-body font-medium text-[13px]" style={{ color: '#C9A84C' }}>⚡ Websites Delivered in 3–5 Days</span>
         </div>
 
         {/* Headline */}
@@ -43,14 +43,14 @@ const Hero = () => {
               {line}
             </span>
           ))}
-          <span className={`block text-primary relative inline-block transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-            style={{ transitionDelay: '0.6s' }}
+          <span className={`block relative inline-block transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            style={{ transitionDelay: '0.6s', color: '#C9A84C' }}
           >
             Customers.
             <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
               <path
                 d="M2 8 C40 2, 80 12, 120 6 S180 2, 198 8"
-                stroke="#6C63FF"
+                stroke="#C9A84C"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 fill="none"
@@ -76,30 +76,29 @@ const Hero = () => {
         >
           <button
             onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-            className="font-body font-semibold text-[15px] text-white h-[52px] px-8 rounded-[10px] transition-all duration-300 hover:-translate-y-0.5"
+            className="font-body font-semibold text-[15px] h-[52px] px-8 rounded-[10px] transition-all duration-300 hover:-translate-y-0.5"
             style={{
-              background: '#6C63FF',
-              boxShadow: '0 0 30px rgba(108,99,255,0.35)',
+              background: 'linear-gradient(135deg, #957C3D, #C9A84C)',
+              color: '#001020',
+              boxShadow: '0 0 30px rgba(201,168,76,0.25)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#5952E8';
-              e.currentTarget.style.boxShadow = '0 0 50px rgba(108,99,255,0.5)';
+              e.currentTarget.style.boxShadow = '0 0 60px rgba(201,168,76,0.4)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#6C63FF';
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(108,99,255,0.35)';
+              e.currentTarget.style.boxShadow = '0 0 30px rgba(201,168,76,0.25)';
             }}
           >
             See Our Work
           </button>
           <a
-            href="https://wa.me/91XXXXXXXXXX"
+            href="https://wa.me/917499289391"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body font-semibold text-[15px] h-[52px] px-8 rounded-[10px] flex items-center transition-all duration-300 hover:bg-[rgba(0,212,170,0.08)]"
+            className="font-body font-semibold text-[15px] h-[52px] px-8 rounded-[10px] flex items-center transition-all duration-300 hover:bg-[rgba(201,168,76,0.08)]"
             style={{
-              border: '1.5px solid rgba(0,212,170,0.5)',
-              color: '#00D4AA',
+              border: '1.5px solid rgba(201,168,76,0.5)',
+              color: '#C9A84C',
             }}
           >
             Chat on WhatsApp →
@@ -117,8 +116,8 @@ const Hero = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <svg width="20" height="32" viewBox="0 0 20 32" fill="none" className="opacity-40">
-          <rect x="1" y="1" width="18" height="30" rx="9" stroke="#555350" strokeWidth="1.5" />
-          <circle cx="10" cy="10" r="2" fill="#555350" className="animate-scroll-dot" />
+          <rect x="1" y="1" width="18" height="30" rx="9" stroke="#4A5D7A" strokeWidth="1.5" />
+          <circle cx="10" cy="10" r="2" fill="#4A5D7A" className="animate-scroll-dot" />
         </svg>
       </div>
     </section>

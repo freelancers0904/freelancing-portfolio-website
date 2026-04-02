@@ -2,15 +2,15 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: string }) => (
   <div className="animate-float rounded-xl overflow-hidden" style={{
-    background: '#1A1A1A',
-    border: '1px solid rgba(255,255,255,0.1)',
+    background: '#0A1628',
+    border: '1px solid rgba(149,124,61,0.2)',
     boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
   }}>
-    <div className="h-10 flex items-center px-4 gap-2" style={{ background: '#252525' }}>
+    <div className="h-10 flex items-center px-4 gap-2" style={{ background: '#0F1D30' }}>
       <span className="w-3 h-3 rounded-full" style={{ background: '#FF5F56' }} />
       <span className="w-3 h-3 rounded-full" style={{ background: '#FFBD2E' }} />
       <span className="w-3 h-3 rounded-full" style={{ background: '#27C93F' }} />
-      <div className="ml-3 px-3 py-1 rounded-md w-[60%] font-body text-xs text-agency-text-secondary" style={{ background: '#1A1A1A' }}>
+      <div className="ml-3 px-3 py-1 rounded-md w-[60%] font-body text-xs text-agency-text-secondary" style={{ background: '#0A1628' }}>
         {url}
       </div>
     </div>
@@ -54,7 +54,7 @@ const Portfolio = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="portfolio" className="py-28 md:py-32" style={{ background: '#0D0D0D' }}>
+    <section id="portfolio" className="py-28 md:py-32" style={{ background: '#001A3D' }}>
       <div ref={sectionRef} className="max-w-[1100px] mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">OUR WORK</span>
@@ -68,15 +68,15 @@ const Portfolio = () => {
 
         {projects.map((p, i) => (
           <div key={i} className="scroll-hidden mt-10 rounded-3xl p-8 md:p-12 overflow-hidden" style={{
-            background: 'rgba(255,255,255,0.02)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'rgba(0, 26, 61, 0.35)',
+            border: '1px solid rgba(149,124,61,0.2)',
           }}>
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${p.reversed ? 'lg:grid-flow-dense' : ''}`}>
               <div className={p.reversed ? 'lg:col-start-2' : ''}>
                 <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold tracking-[1px] font-body" style={{
-                  background: 'rgba(0,212,170,0.1)',
-                  border: '1px solid rgba(0,212,170,0.2)',
-                  color: '#00D4AA',
+                  background: 'rgba(201,168,76,0.1)',
+                  border: '1px solid rgba(201,168,76,0.25)',
+                  color: '#C9A84C',
                 }}>
                   {p.tag}
                 </span>
@@ -86,8 +86,8 @@ const Portfolio = () => {
                 <div className="flex flex-wrap gap-2 mt-5">
                   {p.tags.map((tag) => (
                     <span key={tag} className="px-3 py-1 rounded-full font-body text-xs text-agency-text-secondary" style={{
-                      background: 'rgba(255,255,255,0.05)',
-                      border: '1px solid rgba(255,255,255,0.1)',
+                      background: 'rgba(0,26,61,0.5)',
+                      border: '1px solid rgba(149,124,61,0.2)',
                     }}>
                       {tag}
                     </span>
@@ -98,14 +98,14 @@ const Portfolio = () => {
 
                 <div className="flex flex-wrap gap-3 mt-7">
                   <a href={p.liveUrl} target="_blank" rel="noopener noreferrer"
-                    className="font-body font-medium text-sm px-6 py-3 rounded-lg transition-all duration-300 hover:bg-[rgba(108,99,255,0.1)]"
-                    style={{ border: '1.5px solid rgba(108,99,255,0.4)', color: '#6C63FF' }}
+                    className="font-body font-medium text-sm px-6 py-3 rounded-lg transition-all duration-300 hover:bg-[rgba(201,168,76,0.08)]"
+                    style={{ border: '1.5px solid rgba(201,168,76,0.4)', color: '#C9A84C' }}
                   >
                     View Live Site →
                   </a>
-                  <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
-                    className="font-body font-medium text-sm px-6 py-3 rounded-lg text-white transition-all duration-300 hover:shadow-[0_0_40px_rgba(108,99,255,0.5)]"
-                    style={{ background: '#6C63FF', boxShadow: '0 0 20px rgba(108,99,255,0.3)' }}
+                  <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer"
+                    className="font-body font-medium text-sm px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5"
+                    style={{ background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 20px rgba(201,168,76,0.25)' }}
                   >
                     Want something like this?
                   </a>
