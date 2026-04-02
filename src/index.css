@@ -126,7 +126,8 @@
 /* Glassmorphism card utility */
 @layer components {
   .glass-card {
-    @apply bg-card border border-border rounded-[20px] transition-all duration-[350ms] ease-out;
+    @apply bg-card border border-border rounded-[20px] transition-all ease-out;
+    transition-duration: 350ms;
     backdrop-filter: blur(12px);
   }
   .dark .glass-card {
