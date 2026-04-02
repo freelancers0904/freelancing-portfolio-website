@@ -37,7 +37,7 @@ const CustomCursor = () => {
       pos.current.y += (target.current.y - pos.current.y) * 0.15;
 
       const size = isHovering.current ? 36 : 10;
-      const bg = isHovering.current ? 'rgba(108,99,255,0.15)' : 'transparent';
+      const bg = isHovering.current ? 'rgba(201,168,76,0.15)' : 'transparent';
 
       cursor.style.transform = `translate(${pos.current.x - size / 2}px, ${pos.current.y - size / 2}px)`;
       cursor.style.width = `${size}px`;
@@ -63,8 +63,8 @@ const CustomCursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border-[1.5px] border-primary transition-[width,height,background-color] duration-200 ease-out hidden md:block"
-      style={{ width: 10, height: 10 }}
+      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full transition-[width,height,background-color] duration-200 ease-out hidden md:block"
+      style={{ width: 10, height: 10, border: '1.5px solid #C9A84C' }}
     />
   );
 };

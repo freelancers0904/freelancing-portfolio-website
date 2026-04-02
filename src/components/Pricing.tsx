@@ -4,32 +4,32 @@ const plans = [
   {
     price: '₹5,000 – ₹10,000',
     name: 'Starter',
-    nameColor: '#6C63FF',
+    nameColor: '#C9A84C',
     forText: 'For businesses that need to get online fast.',
     features: ['Up to 5 pages', 'Mobile-first responsive design', 'WhatsApp CTA button', 'Basic contact form', '1 round of revisions', 'Delivered in 3–5 days'],
     cta: 'Get Started →',
-    ctaStyle: 'outline-violet' as const,
+    ctaStyle: 'outline' as const,
     elevated: false,
   },
   {
     price: '₹15,000 – ₹25,000',
     name: 'Growth',
-    nameColor: '#6C63FF',
+    nameColor: '#C9A84C',
     forText: 'For gyms and local businesses ready to generate leads.',
     features: ['Everything in Starter', 'AI chatbot integration', 'Smart lead capture form', 'WhatsApp automation setup', 'On-page SEO setup', 'Google Analytics integration', '2 rounds of revisions', '1 month post-launch support', 'Delivered in 3–5 days'],
     cta: 'Start Growing →',
-    ctaStyle: 'filled-violet' as const,
+    ctaStyle: 'filled' as const,
     elevated: true,
     badge: 'MOST POPULAR',
   },
   {
     price: '₹30,000 – ₹50,000+',
     name: 'Scale',
-    nameColor: '#00D4AA',
+    nameColor: '#C9A84C',
     forText: 'For businesses that want a complete automated system.',
     features: ['Everything in Growth', 'Booking / appointment system', 'CRM integration', 'Full workflow automation', 'Multi-page content strategy', 'Custom domain + email setup', '3 months priority support', 'Delivered in 5–7 days'],
     cta: "Let's Build This →",
-    ctaStyle: 'outline-teal' as const,
+    ctaStyle: 'outline' as const,
     elevated: false,
   },
 ];
@@ -38,9 +38,9 @@ const Pricing = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="pricing" className="py-28 md:py-32 relative" style={{ background: '#080808' }}>
+    <section id="pricing" className="py-28 md:py-32 relative" style={{ background: '#001020' }}>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 500px 300px at 50% 100%, rgba(0,212,170,0.05), transparent)',
+        background: 'radial-gradient(ellipse 500px 300px at 50% 100%, rgba(201,168,76,0.05), transparent)',
       }} />
 
       <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
@@ -57,15 +57,16 @@ const Pricing = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 items-start">
           {plans.map((plan, i) => (
             <div key={i} className={`scroll-hidden relative p-9 rounded-[20px] ${plan.elevated ? 'md:-translate-y-4' : ''}`} style={{
-              background: plan.elevated ? 'rgba(108,99,255,0.07)' : 'rgba(255,255,255,0.03)',
-              border: plan.elevated ? '1.5px solid rgba(108,99,255,0.4)' : '1px solid rgba(255,255,255,0.07)',
-              backdropFilter: 'blur(12px)',
-              boxShadow: plan.elevated ? '0 0 0 1px rgba(108,99,255,0.1), 0 30px 60px rgba(108,99,255,0.12), 0 0 100px rgba(108,99,255,0.06)' : 'none',
+              background: plan.elevated ? 'rgba(201,168,76,0.07)' : 'rgba(0, 26, 61, 0.35)',
+              border: plan.elevated ? '1.5px solid rgba(201,168,76,0.5)' : '1px solid rgba(149,124,61,0.2)',
+              backdropFilter: 'blur(16px)',
+              boxShadow: plan.elevated ? '0 0 0 1px rgba(201,168,76,0.2), 0 30px 60px rgba(201,168,76,0.1), 0 0 100px rgba(201,168,76,0.05)' : 'none',
             }}>
               {plan.badge && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-white font-body font-semibold text-xs tracking-[0.5px]" style={{
-                  background: 'linear-gradient(135deg, #6C63FF, #5952E8)',
-                  boxShadow: '0 4px 20px rgba(108,99,255,0.4)',
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full font-body font-semibold text-xs tracking-[0.5px]" style={{
+                  background: 'linear-gradient(135deg, #957C3D, #C9A84C)',
+                  color: '#001020',
+                  boxShadow: '0 4px 20px rgba(201,168,76,0.4)',
                 }}>
                   {plan.badge}
                 </div>
@@ -75,32 +76,26 @@ const Pricing = () => {
               <div className="font-display font-semibold text-xl mt-2" style={{ color: plan.nameColor }}>{plan.name}</div>
               <p className="font-body text-sm text-agency-text-secondary mt-1.5">{plan.forText}</p>
 
-              <div className="h-px my-6" style={{ background: 'rgba(255,255,255,0.06)' }} />
+              <div className="h-px my-6" style={{ background: 'rgba(149,124,61,0.15)' }} />
 
               <div className="space-y-3">
                 {plan.features.map((f, j) => (
                   <div key={j} className="flex items-start gap-2.5">
                     <span className="w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold mt-0.5 shrink-0" style={{
-                      background: 'rgba(108,99,255,0.1)',
-                      color: '#6C63FF',
+                      background: 'rgba(201,168,76,0.1)',
+                      color: '#C9A84C',
                     }}>✓</span>
                     <span className="font-body text-sm text-agency-text-secondary">{f}</span>
                   </div>
                 ))}
               </div>
 
-              <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
-                className={`block w-full text-center mt-8 py-3 rounded-[10px] font-body font-medium text-sm transition-all duration-300 ${
-                  plan.ctaStyle === 'filled-violet'
-                    ? 'text-white hover:-translate-y-0.5'
-                    : 'hover:-translate-y-0.5'
-                }`}
+              <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer"
+                className={`block w-full text-center mt-8 py-3 rounded-[10px] font-body font-medium text-sm transition-all duration-300 hover:-translate-y-0.5`}
                 style={
-                  plan.ctaStyle === 'filled-violet'
-                    ? { background: 'linear-gradient(135deg, #6C63FF, #5952E8)', boxShadow: '0 0 30px rgba(108,99,255,0.4)', height: 52, lineHeight: '52px', padding: 0 }
-                    : plan.ctaStyle === 'outline-teal'
-                    ? { border: '1.5px solid rgba(0,212,170,0.4)', color: '#00D4AA', height: 48, lineHeight: '48px', padding: 0 }
-                    : { border: '1.5px solid rgba(108,99,255,0.4)', color: '#6C63FF', height: 48, lineHeight: '48px', padding: 0 }
+                  plan.ctaStyle === 'filled'
+                    ? { background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 30px rgba(201,168,76,0.4)', height: 52, lineHeight: '52px', padding: 0, fontWeight: 600 }
+                    : { border: '1.5px solid rgba(201,168,76,0.5)', color: '#C9A84C', height: 48, lineHeight: '48px', padding: 0 }
                 }
               >
                 {plan.cta}
@@ -111,14 +106,14 @@ const Pricing = () => {
 
         {/* Mid-page CTA */}
         <div className="scroll-hidden mt-12 text-center rounded-[20px] py-9 px-8 md:px-12" style={{
-          background: 'rgba(108,99,255,0.06)',
-          border: '1px solid rgba(108,99,255,0.15)',
+          background: 'rgba(201,168,76,0.06)',
+          border: '1px solid rgba(201,168,76,0.15)',
         }}>
           <h3 className="font-display font-semibold text-[22px] text-agency-text">Not sure which plan fits your business?</h3>
           <p className="font-body text-[15px] text-agency-text-secondary mt-2">Chat with us — we'll help you pick the right starting point. No sales pressure.</p>
-          <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer"
-            className="inline-block mt-5 px-7 h-12 leading-[48px] rounded-[10px] font-body font-semibold text-sm text-white transition-all duration-300 hover:-translate-y-0.5"
-            style={{ background: '#6C63FF' }}
+          <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer"
+            className="inline-block mt-5 px-7 h-12 leading-[48px] rounded-[10px] font-body font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
+            style={{ background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020' }}
           >
             Chat on WhatsApp — It's Free →
           </a>

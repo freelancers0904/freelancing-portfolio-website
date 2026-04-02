@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
+        display: ['"Clash Display"', 'sans-serif'],
         body: ['"Inter"', 'sans-serif'],
       },
       colors: {
@@ -61,21 +61,23 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        violet: {
-          DEFAULT: "#6C63FF",
-          dim: "rgba(108, 99, 255, 0.15)",
-          glow: "rgba(108, 99, 255, 0.25)",
+        gold: {
+          DEFAULT: "#C9A84C",
+          dark: "#957C3D",
+          dim: "rgba(201, 168, 76, 0.15)",
+          glow: "rgba(201, 168, 76, 0.25)",
         },
-        teal: {
-          DEFAULT: "#00D4AA",
-          dim: "rgba(0, 212, 170, 0.12)",
+        navy: {
+          DEFAULT: "#001A3D",
+          deep: "#001020",
+          light: "#002349",
         },
         agency: {
-          bg: "#080808",
-          "bg-alt": "#0D0D0D",
-          text: "#F0EEF9",
-          "text-secondary": "#8A8784",
-          "text-muted": "#555350",
+          bg: "#001020",
+          "bg-alt": "#001A3D",
+          text: "#F0EEE9",
+          "text-secondary": "#8A9BB5",
+          "text-muted": "#4A5D7A",
         },
       },
       borderRadius: {

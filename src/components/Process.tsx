@@ -12,7 +12,7 @@ const Process = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="process" className="py-28 md:py-32" style={{ background: '#0D0D0D' }}>
+    <section id="process" className="py-28 md:py-32" style={{ background: '#001A3D' }}>
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">HOW WE WORK</span>
@@ -28,21 +28,22 @@ const Process = () => {
         <div className="relative mt-16">
           {/* Connecting line desktop */}
           <div className="hidden md:block absolute top-7 left-[10%] right-[10%] h-px" style={{
-            background: 'linear-gradient(90deg, transparent, rgba(108,99,255,0.3) 20%, rgba(108,99,255,0.5) 50%, rgba(108,99,255,0.3) 80%, transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4) 20%, rgba(201,168,76,0.6) 50%, rgba(201,168,76,0.4) 80%, transparent)',
           }} />
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-4">
             {steps.map((step, i) => (
               <div key={i} className="scroll-hidden flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center font-display font-bold text-xl text-primary shrink-0" style={{
-                  background: 'rgba(108,99,255,0.1)',
-                  border: '1.5px solid rgba(108,99,255,0.3)',
-                  boxShadow: '0 0 20px rgba(108,99,255,0.15)',
+                <div className="w-14 h-14 rounded-full flex items-center justify-center font-display font-bold text-xl shrink-0" style={{
+                  background: 'rgba(201,168,76,0.1)',
+                  border: '1.5px solid rgba(201,168,76,0.4)',
+                  boxShadow: '0 0 20px rgba(201,168,76,0.15)',
+                  color: '#C9A84C',
                 }}>
                   {i + 1}
                 </div>
-                <div className="font-body font-semibold text-[13px] text-primary mt-4 tracking-[0.5px]">{step.day}</div>
-                <div className="font-display font-semibold text-[15px] text-agency-text mt-2">{step.title}</div>
+                <div className="font-body font-semibold text-[13px] mt-4 tracking-[0.5px]" style={{ color: '#C9A84C' }}>{step.day}</div>
+                <div className="font-display font-semibold text-[16px] text-agency-text mt-2">{step.title}</div>
                 <p className="font-body text-[13px] text-agency-text-secondary max-w-[160px] leading-[1.6] mt-2">{step.body}</p>
               </div>
             ))}
