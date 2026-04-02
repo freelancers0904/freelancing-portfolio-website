@@ -14,12 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Syne"', 'sans-serif'],
-        body: ['"DM Sans"', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
+        body: ['"Inter"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
-        "border-hover": "hsl(var(--border-hover))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -51,7 +50,6 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-          hover: "hsl(var(--card-hover))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -63,20 +61,21 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        gold: {
-          DEFAULT: "hsl(var(--accent-gold))",
-          dim: "hsl(var(--accent-gold-dim))",
+        violet: {
+          DEFAULT: "#6C63FF",
+          dim: "rgba(108, 99, 255, 0.15)",
+          glow: "rgba(108, 99, 255, 0.25)",
         },
         teal: {
-          DEFAULT: "hsl(var(--accent-teal))",
-          dim: "hsl(var(--accent-teal-dim))",
+          DEFAULT: "#00D4AA",
+          dim: "rgba(0, 212, 170, 0.12)",
         },
         agency: {
-          bg: "hsl(var(--bg-primary))",
-          "bg-alt": "hsl(var(--bg-secondary))",
-          text: "hsl(var(--text-primary))",
-          "text-secondary": "hsl(var(--text-secondary))",
-          "text-muted": "hsl(var(--text-muted))",
+          bg: "#080808",
+          "bg-alt": "#0D0D0D",
+          text: "#F0EEF9",
+          "text-secondary": "#8A8784",
+          "text-muted": "#555350",
         },
       },
       borderRadius: {
