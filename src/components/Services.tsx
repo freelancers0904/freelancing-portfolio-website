@@ -43,12 +43,12 @@ const Services = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="services" className="py-28 md:py-32" style={{ background: '#001020' }}>
+    <section id="services" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-primary))' }}>
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center scroll-hidden">
           <span className="section-label">WHAT WE DO</span>
         </div>
-        <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[56px] text-center mt-6 leading-tight tracking-[-0.03em]">
+        <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
           <span className="text-agency-text">We don't just build websites.</span><br />
           <span className="text-agency-text">We build systems that bring you </span>
           <span style={{ color: '#C9A84C' }}>customers.</span>
@@ -60,20 +60,20 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
           {services.map((s, i) => (
             <div key={i} className="scroll-hidden relative overflow-hidden p-9 transition-all duration-[350ms]" style={{
-              background: 'rgba(0, 26, 61, 0.35)',
+              background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: '1px solid rgba(149, 124, 61, 0.2)',
               borderRadius: 20,
               backdropFilter: 'blur(16px)',
             }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(201,168,76,0.45)';
-                e.currentTarget.style.background = 'rgba(0, 26, 61, 0.55)';
+                e.currentTarget.style.background = `hsla(var(--card-bg), var(--card-bg-hover-alpha))`;
                 e.currentTarget.style.transform = 'translateY(-8px)';
                 e.currentTarget.style.boxShadow = '0 0 50px rgba(201,168,76,0.08), 0 30px 60px rgba(0,0,0,0.3)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.borderColor = 'rgba(149, 124, 61, 0.2)';
-                e.currentTarget.style.background = 'rgba(0, 26, 61, 0.35)';
+                e.currentTarget.style.background = `hsla(var(--card-bg), var(--card-bg-alpha))`;
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
               }}

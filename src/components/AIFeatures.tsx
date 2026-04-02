@@ -31,7 +31,7 @@ const AIFeatures = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section className="py-28 md:py-32 relative overflow-hidden" style={{ background: '#001020' }}>
+    <section className="py-28 md:py-32 relative overflow-hidden" style={{ background: 'hsl(var(--bg-primary))' }}>
       <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none" style={{
         background: 'radial-gradient(ellipse, rgba(201,168,76,0.07), transparent 70%)'
       }} />
@@ -39,7 +39,7 @@ const AIFeatures = () => {
       <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">AI POWERED</span>
-          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[56px] text-center mt-6 leading-tight tracking-[-0.03em]">
+          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
             <span className="text-agency-text">While you sleep, your website </span>
             <span style={{ color: '#C9A84C' }}>works.</span>
           </h2>
@@ -51,7 +51,7 @@ const AIFeatures = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-16">
           {features.map((f, i) => (
             <div key={i} className="scroll-hidden p-8 transition-all duration-[350ms]" style={{
-              background: 'rgba(0, 26, 61, 0.35)',
+              background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: '1px solid rgba(149, 124, 61, 0.18)',
               borderRadius: 20,
               backdropFilter: 'blur(16px)',

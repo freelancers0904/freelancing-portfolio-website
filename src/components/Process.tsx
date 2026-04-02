@@ -12,7 +12,7 @@ const Process = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="process" className="py-28 md:py-32" style={{ background: '#001A3D' }}>
+    <section id="process" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-secondary))' }}>
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">HOW WE WORK</span>

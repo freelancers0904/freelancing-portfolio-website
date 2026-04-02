@@ -32,6 +32,9 @@
     --bg-primary: 210 100% 3.1%;
     --bg-secondary: 210 100% 12%;
     --accent-gold: 43 48% 54%;
+    --scroll-top-bg: 210 100% 10%;
+    --scroll-top-text: 0 0% 100%;
+    --scroll-top-icon: 0 0% 100%;
     --accent-gold-dim: 43 48% 54% / 0.15;
     --accent-dark-gold: 43 42% 37%;
     --accent-dark-gold-dim: 43 42% 37% / 0.12;
@@ -43,39 +46,61 @@
     --sidebar-accent-foreground: 40 10% 93%;
     --sidebar-border: 43 42% 37% / 0.15;
     --sidebar-ring: 43 48% 54%;
+    
+    /* Component-specific colors - Dark mode (default) */
+    --section-bg-primary: 210 100% 3.1%;
+    --section-bg-secondary: 210 100% 12%;
+    --section-bg-tertiary: 210 92% 6%;
+    --card-bg: 210 100% 14%;
+    --card-bg-alpha: 0.35;
+    --card-bg-hover-alpha: 0.55;
+    --glass-overlay-alpha: 0.35;
+    --gold-rgb: 201 168 76;
   }
 
   .light-mode {
-    --background: 35 18% 95%;
-    --foreground: 210 100% 11%;
-    --card: 0 0% 100% / 0.7;
-    --card-foreground: 210 100% 11%;
-    --card-hover: 0 0% 100% / 0.9;
-    --popover: 35 18% 95%;
-    --popover-foreground: 210 100% 11%;
-    --primary: 43 42% 37%;
+    --background: 35 25% 97%;
+    --foreground: 210 60% 20%;
+    --card: 0 0% 100% / 0.85;
+    --card-foreground: 210 60% 18%;
+    --card-hover: 0 0% 100% / 0.95;
+    --popover: 35 25% 97%;
+    --popover-foreground: 210 60% 20%;
+    --primary: 43 55% 40%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 35 14% 90%;
-    --secondary-foreground: 210 100% 11%;
-    --muted: 35 14% 90%;
-    --muted-foreground: 220 10% 55%;
-    --accent: 210 100% 14%;
-    --accent-foreground: 40 10% 93%;
+    --secondary: 35 20% 88%;
+    --secondary-foreground: 210 60% 18%;
+    --muted: 35 15% 80%;
+    --muted-foreground: 210 25% 42%;
+    --accent: 43 55% 40%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 43 42% 37% / 0.2;
-    --border-hover: 43 42% 37% / 0.5;
-    --input: 0 0% 100% / 0.7;
-    --ring: 43 42% 37%;
-    --text-primary: 210 100% 11%;
-    --text-secondary: 215 10% 33%;
-    --text-muted: 220 10% 55%;
-    --bg-primary: 35 18% 95%;
-    --bg-secondary: 35 14% 90%;
-    --accent-gold: 43 42% 37%;
-    --accent-gold-dim: 43 42% 37% / 0.1;
-    --accent-dark-gold: 210 100% 14%;
-    --accent-dark-gold-dim: 210 100% 14% / 0.1;
+    --border: 43 40% 40% / 0.25;
+    --border-hover: 43 55% 40% / 0.4;
+    --input: 0 0% 100% / 0.95;
+    --ring: 43 55% 40%;
+    --text-primary: 210 60% 18%;
+    --text-secondary: 210 35% 32%;
+    --text-muted: 210 20% 52%;
+    --bg-primary: 35 25% 97%;
+    --bg-secondary: 35 20% 92%;
+    --accent-gold: 43 55% 40%;
+    --accent-gold-dim: 43 55% 40% / 0.12;
+    --accent-dark-gold: 43 55% 40%;
+    --accent-dark-gold-dim: 43 55% 40% / 0.1;
+    --scroll-top-bg-light: 210 100% 85%;
+    --scroll-top-text: 210 20% 30%;
+    --scroll-top-icon: 0 0% 100%;
+    
+    /* Component-specific colors - Light mode */
+    --section-bg-primary: 35 25% 97%;
+    --section-bg-secondary: 35 20% 92%;
+    --section-bg-tertiary: 35 22% 95%;
+    --card-bg: 0 0% 100%;
+    --card-bg-alpha: 0.85;
+    --card-bg-hover-alpha: 0.95;
+    --glass-overlay-alpha: 0.75;
   }
 
   * {
@@ -111,25 +136,30 @@ body::before {
   opacity: 0.4;
 }
 
+.light-mode body::before {
+  opacity: 0.15;
+}
+
 /* Glassmorphism card utility */
 @layer components {
   .glass-card {
-    background: rgba(0, 26, 61, 0.35);
+    background: hsla(var(--card-bg), var(--card-bg-alpha));
     border: 1px solid rgba(149, 124, 61, 0.2);
     backdrop-filter: blur(16px);
     border-radius: 20px;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glass-card:hover {
-    background: rgba(0, 26, 61, 0.55);
-    border-color: rgba(201, 168, 76, 0.45);
-    box-shadow: 0 0 40px rgba(201,168,76,0.08), 0 20px 60px rgba(0,0,0,0.4);
+    background: hsla(var(--card-bg), var(--card-bg-hover-alpha));
+    border-color: rgb(var(--gold-rgb), 0.45);
+    box-shadow: 0 0 40px rgba(var(--gold-rgb), 0.08), 0 20px 60px rgba(0,0,0,0.4);
     transform: translateY(-6px);
   }
 
   .light-mode .glass-card {
     background: rgba(255, 255, 255, 0.6);
     border: 1px solid rgba(149, 124, 61, 0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   }
   .light-mode .glass-card:hover {
     background: rgba(255, 255, 255, 0.85);
@@ -145,6 +175,38 @@ body::before {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     letter-spacing: 2px;
+  }
+
+  .light-mode .section-label {
+    background: rgba(149, 124, 61, 0.08);
+    border: 1px solid rgba(149, 124, 61, 0.3);
+    color: #957C3D;
+  }
+
+  .hero-navy-glow, .finalcta-navy-glow {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+  .light-mode .hero-navy-glow,
+  .light-mode .finalcta-navy-glow {
+    opacity: 0;
+  }
+
+  .hero-gold-glow {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+  .light-mode .hero-gold-glow {
+    opacity: 0.45;
+  }
+
+  .scroll-top-btn {
+    background: hsl(var(--scroll-top-bg));
+    border: 1px solid rgba(201,168,76,0.4);
+  }
+  .light-mode .scroll-top-btn {
+    background: hsl(var(--scroll-top-bg-light));
+    border: 1px solid rgba(149,124,61,0.4);
   }
 }
 

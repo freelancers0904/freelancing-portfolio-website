@@ -73,11 +73,11 @@ export default {
           light: "#002349",
         },
         agency: {
-          bg: "#001020",
-          "bg-alt": "#001A3D",
-          text: "#F0EEE9",
-          "text-secondary": "#8A9BB5",
-          "text-muted": "#4A5D7A",
+          bg: "hsl(var(--bg-primary))",
+          "bg-alt": "hsl(var(--bg-secondary))",
+          text: "hsl(var(--text-primary))",
+          "text-secondary": "hsl(var(--text-secondary))",
+          "text-muted": "hsl(var(--text-muted))",
         },
       },
       borderRadius: {

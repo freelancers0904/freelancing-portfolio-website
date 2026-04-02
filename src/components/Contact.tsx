@@ -1,12 +1,13 @@
 import { useState, FormEvent } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import WhatsAppSelector from './WhatsAppSelector';
 
 const inputStyle = {
-  background: 'rgba(0,26,61,0.4)',
+  background: 'hsla(var(--card-bg), var(--card-bg-alpha))',
   border: '1px solid rgba(149,124,61,0.2)',
   borderRadius: 10,
   padding: '14px 18px',
-  color: '#F0EEE9',
+  color: 'hsl(var(--text-primary))',
   width: '100%',
   outline: 'none',
   transition: 'all 0.2s',
@@ -17,6 +18,7 @@ const inputStyle = {
 const Contact = () => {
   const sectionRef = useScrollAnimation();
   const [submitted, setSubmitted] = useState(false);
+  const [whatsappOpen, setWhatsappOpen] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -24,7 +26,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 md:py-32" style={{ background: '#001A3D' }}>
+    <section id="contact" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-secondary))' }}>
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">CONTACT</span>
@@ -49,9 +51,9 @@ const Contact = () => {
                   onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.6)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.1)'; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(149,124,61,0.2)'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
-                  <option value="" style={{ background: '#001A3D' }}>Business Type</option>
+                  <option value="" style={{ background: 'hsl(var(--bg-secondary))', color: 'hsl(var(--text-primary))' }}>Business Type</option>
                   {['Gym', 'Fitness Center', 'Coaching Business', 'Local Service', 'Restaurant', 'Other'].map((o) => (
-                    <option key={o} value={o} style={{ background: '#001A3D' }}>{o}</option>
+                    <option key={o} value={o} style={{ background: 'hsl(var(--bg-secondary))', color: 'hsl(var(--text-primary))' }}>{o}</option>
                   ))}
                 </select>
                 <input type="email" placeholder="Email Address" required style={inputStyle}
@@ -90,20 +92,20 @@ const Contact = () => {
                 <div>
                   <h4 className="font-body font-semibold text-base text-agency-text">Chat on WhatsApp</h4>
                   <div className="mt-2 space-y-1">
-                    <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors">
+                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors">
                       Chat with Mahesh: +91 74992 89391
-                    </a>
-                    <a href="https://wa.me/918660121462" target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors">
+                    </button>
+                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors">
                       Chat with Palak: +91 86601 21462
-                    </a>
+                    </button>
                   </div>
                   <p className="font-body text-xs text-agency-text-muted mt-1">We typically reply within 30 minutes</p>
-                  <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer"
+                  <button onClick={() => setWhatsappOpen(true)}
                     className="inline-block mt-3 px-4 py-2 rounded-lg font-body text-[13px] font-medium transition-all duration-300"
                     style={{ border: '1.5px solid rgba(37,211,102,0.4)', color: '#25D366' }}
                   >
                     Open WhatsApp →
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -134,6 +136,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      <WhatsAppSelector isOpen={whatsappOpen} onClose={() => setWhatsappOpen(false)} />
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import WhatsAppSelector from './WhatsAppSelector';
 
 const navLinks = [
   { label: 'Work', href: '#portfolio' },
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [isLight, setIsLight] = useState(false);
+  const [whatsappOpen, setWhatsappOpen] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
@@ -87,15 +89,15 @@ const Navbar = () => {
                 onClick={() => handleClick(link.href)}
                 className="font-body font-medium text-sm transition-colors duration-200"
                 style={{
-                  color: activeSection === link.href.slice(1) ? '#C9A84C' : '#8A9BB5',
+                  color: activeSection === link.href.slice(1) ? '#C9A84C' : (isLight ? '#5A6A7A' : '#8A9BB5'),
                 }}
                 onMouseEnter={(e) => {
                   if (activeSection !== link.href.slice(1))
-                    (e.target as HTMLElement).style.color = '#F0EEE9';
+                    (e.target as HTMLElement).style.color = (isLight ? '#1A2332' : '#C9A84C');
                 }}
                 onMouseLeave={(e) => {
                   if (activeSection !== link.href.slice(1))
-                    (e.target as HTMLElement).style.color = '#8A9BB5';
+                    (e.target as HTMLElement).style.color = (isLight ? '#5A6A7A' : '#8A9BB5');
                 }}
               >
                 {link.label}
@@ -125,10 +127,8 @@ const Navbar = () => {
               </div>
             </button>
 
-            <a
-              href="https://wa.me/917499289391"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setWhatsappOpen(true)}
               className="hidden md:block font-body font-medium text-sm px-5 py-2.5 rounded-lg transition-all duration-300"
               style={{
                 border: '1.5px solid rgba(201,168,76,0.5)',
@@ -148,7 +148,7 @@ const Navbar = () => {
               }}
             >
               Let's Talk →
-            </a>
+            </button>
 
             {/* Hamburger */}
             <button
@@ -168,7 +168,7 @@ const Navbar = () => {
         <div
           className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8"
           style={{
-            background: 'rgba(0,16,32,0.97)',
+            background: isLight ? 'rgba(245,242,238,0.97)' : 'rgba(0,16,32,0.97)',
             backdropFilter: 'blur(20px)',
           }}
         >
@@ -203,6 +203,8 @@ const Navbar = () => {
           </button>
         </div>
       )}
+
+      <WhatsAppSelector isOpen={whatsappOpen} onClose={() => setWhatsappOpen(false)} />
     </>
   );
 };

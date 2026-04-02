@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import WhatsAppSelector from './WhatsAppSelector';
+
 const navLinks = [
   { label: 'Work', href: '#portfolio' },
   { label: 'Services', href: '#services' },
@@ -7,12 +10,14 @@ const navLinks = [
 ];
 
 const Footer = () => {
+  const [whatsappOpen, setWhatsappOpen] = useState(false);
+
   const handleClick = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <footer style={{ background: '#000D1A', borderTop: '1px solid rgba(149,124,61,0.15)' }}>
+    <footer style={{ background: 'hsl(var(--bg-primary))', borderTop: '1px solid rgba(149,124,61,0.15)' }}>
       <div className="max-w-6xl mx-auto px-6 pt-12 pb-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Logo */}
@@ -41,21 +46,23 @@ const Footer = () => {
           {/* Get in touch */}
           <div>
             <p className="font-body font-medium text-[11px] tracking-[1.5px] text-agency-text-muted uppercase mb-4">Get in touch</p>
-            <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer"
+            <button onClick={() => setWhatsappOpen(true)}
               className="inline-block px-4 py-2 rounded-lg font-body text-[13px] font-medium mb-3 transition-all duration-300"
               style={{ border: '1.5px solid rgba(37,211,102,0.4)', color: '#25D366' }}
             >
               WhatsApp →
-            </a>
+            </button>
             <p className="font-body text-[13px] text-agency-text-secondary">hello@agencyname.com</p>
           </div>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-center mt-10 pt-5" style={{ borderTop: '1px solid rgba(149,124,61,0.1)' }}>
-          <p className="font-body text-[13px] text-agency-text-muted">© 2025 [AGENCY NAME]. Built with purpose in India.</p>
-          <p className="font-body text-[13px] text-agency-text-muted mt-2 sm:mt-0">Nagpur, Maharashtra 🇮🇳</p>
+          <p className="font-body text-[13px] text-agency-text-muted">© 2026 [AGENCY NAME]. Built with purpose in India.</p>
+          <p className="font-body text-[13px] text-agency-text-muted mt-2 sm:mt-0">Kolhapur, Maharashtra 🇮🇳</p>
         </div>
       </div>
+
+      <WhatsAppSelector isOpen={whatsappOpen} onClose={() => setWhatsappOpen(false)} />
     </footer>
   );
 };

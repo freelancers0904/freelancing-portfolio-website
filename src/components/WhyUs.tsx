@@ -41,7 +41,7 @@ const PhoneMockup = () => {
   return (
     <div className="animate-float-phone mx-auto" style={{
       width: 280, height: 560,
-      background: '#001020',
+      background: 'hsl(var(--bg-primary))',
       border: '2px solid rgba(149,124,61,0.25)',
       borderRadius: 44,
       boxShadow: '0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(149,124,61,0.1), inset 0 0 0 1px rgba(149,124,61,0.05)',
@@ -108,7 +108,7 @@ const WhyUs = () => {
   ];
 
   return (
-    <section className="py-28 md:py-32" style={{ background: '#001A3D' }}>
+    <section className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-secondary))' }}>
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[55%_45%] gap-16 items-center">
         <div>
           <span className="scroll-hidden font-body font-semibold text-xs tracking-[2px] uppercase" style={{ color: '#C9A84C' }}>WHY US?</span>

@@ -16,7 +16,7 @@ const Stats = () => {
   const marqueeText = 'High-Converting Websites ✦ AI Chatbots ✦ WhatsApp Automation ✦ Lead Capture Systems ✦ 3–5 Day Delivery ✦ Gym Websites ✦ Local Business Websites ✦ Mobile-First Design ✦ ';
 
   return (
-    <section style={{ background: '#001A3D', borderTop: '1px solid rgba(149,124,61,0.15)', borderBottom: '1px solid rgba(149,124,61,0.15)' }}>
+    <section style={{ background: 'hsl(var(--bg-secondary))', borderTop: '1px solid rgba(149,124,61,0.15)', borderBottom: '1px solid rgba(149,124,61,0.15)' }}>
       <div ref={sectionRef} className="max-w-5xl mx-auto px-6 pt-16 pb-0">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
           {stats.map((stat, i) => (
@@ -37,14 +37,18 @@ const Stats = () => {
       </div>
 
       {/* Marquee */}
-      <div className="mt-12 overflow-hidden" style={{ background: 'rgba(0,0,0,0.4)', borderTop: '1px solid rgba(149,124,61,0.1)' }}>
-        <div className="py-4 animate-marquee whitespace-nowrap inline-flex">
+      <div className="mt-12 overflow-hidden relative" style={{ 
+        background: 'linear-gradient(180deg, rgba(201,168,76,0.05) 0%, rgba(0,0,0,0) 100%)',
+        borderTop: '1px solid rgba(149,124,61,0.2)',
+        borderBottom: '1px solid rgba(149,124,61,0.2)',
+      }}>
+        <div className="py-6 md:py-8 animate-marquee whitespace-nowrap inline-flex">
           {[0, 1].map((k) => (
-            <span key={k} className="font-body font-medium text-[13px] tracking-[0.5px] mr-0">
+            <span key={k} className="font-body font-medium text-[15px] tracking-[0.5px] mr-0">
               {marqueeText.split('✦').map((part, j) => (
                 <span key={j}>
-                  <span className="text-agency-text-muted">{part}</span>
-                  {j < marqueeText.split('✦').length - 1 && <span style={{ color: '#C9A84C' }}>✦</span>}
+                  <span className="text-agency-text-secondary">{part}</span>
+                  {j < marqueeText.split('✦').length - 1 && <span style={{ color: '#C9A84C', fontSize: '18px', margin: '0 12px' }}>✦</span>}
                 </span>
               ))}
             </span>

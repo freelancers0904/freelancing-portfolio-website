@@ -1,15 +1,18 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useState } from 'react';
+import WhatsAppSelector from './WhatsAppSelector';
 
 const FinalCTA = () => {
   const sectionRef = useScrollAnimation();
+  const [whatsappOpen, setWhatsappOpen] = useState(false);
 
   return (
-    <section className="py-36 relative overflow-hidden" style={{ background: '#001020' }}>
+    <section className="py-36 relative overflow-hidden" style={{ background: 'hsl(var(--bg-primary))' }}>
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: 'radial-gradient(ellipse 800px 500px at 50% 50%, rgba(201,168,76,0.08), transparent 70%)',
       }} />
-      <div className="absolute inset-0 pointer-events-none" style={{
+      <div className="absolute inset-0 pointer-events-none finalcta-navy-glow" style={{
         background: 'radial-gradient(ellipse 500px 300px at 50% 90%, rgba(0,35,73,0.8), transparent 70%)',
       }} />
       {/* Diagonal lines */}
@@ -27,7 +30,8 @@ const FinalCTA = () => {
         </p>
 
         <div className="scroll-hidden flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer"
+          <button
+            onClick={() => setWhatsappOpen(true)}
             className="font-body font-semibold text-base h-14 px-9 rounded-xl flex items-center transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
             style={{
               background: 'linear-gradient(135deg, #957C3D, #C9A84C)',
@@ -36,7 +40,7 @@ const FinalCTA = () => {
             }}
           >
             Start Your Project →
-          </a>
+          </button>
           <button
             onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
             className="font-body font-semibold text-base text-agency-text h-14 px-9 rounded-xl flex items-center transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)]"
@@ -50,6 +54,8 @@ const FinalCTA = () => {
           ⚡ We take on a limited number of projects each month.
         </p>
       </div>
+
+      <WhatsAppSelector isOpen={whatsappOpen} onClose={() => setWhatsappOpen(false)} />
     </section>
   );
 };

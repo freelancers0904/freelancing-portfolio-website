@@ -1,7 +1,7 @@
 const WhatsAppFAB = () => {
   return (
     <a
-      href="https://wa.me/917499289391"
+      href="https://api.whatsapp.com/send?phone=917499289391"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed right-6 bottom-6 z-[9997] w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-110"

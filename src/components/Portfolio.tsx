@@ -1,16 +1,18 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useState } from 'react';
+import WhatsAppSelector from './WhatsAppSelector';
 
 const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: string }) => (
   <div className="animate-float rounded-xl overflow-hidden" style={{
-    background: '#0A1628',
+    background: 'hsl(var(--bg-primary))',
     border: '1px solid rgba(149,124,61,0.2)',
     boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
   }}>
-    <div className="h-10 flex items-center px-4 gap-2" style={{ background: '#0F1D30' }}>
+    <div className="h-10 flex items-center px-4 gap-2" style={{ background: 'hsl(var(--bg-secondary))' }}>
       <span className="w-3 h-3 rounded-full" style={{ background: '#FF5F56' }} />
       <span className="w-3 h-3 rounded-full" style={{ background: '#FFBD2E' }} />
       <span className="w-3 h-3 rounded-full" style={{ background: '#27C93F' }} />
-      <div className="ml-3 px-3 py-1 rounded-md w-[60%] font-body text-xs text-agency-text-secondary" style={{ background: '#0A1628' }}>
+      <div className="ml-3 px-3 py-1 rounded-md w-[60%] font-body text-xs text-agency-text-secondary" style={{ background: 'hsl(var(--bg-primary))' }}>
         {url}
       </div>
     </div>
@@ -52,13 +54,14 @@ const projects = [
 
 const Portfolio = () => {
   const sectionRef = useScrollAnimation();
+  const [whatsappOpen, setWhatsappOpen] = useState(false);
 
   return (
-    <section id="portfolio" className="py-28 md:py-32" style={{ background: '#001A3D' }}>
+    <section id="portfolio" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-secondary))' }}>
       <div ref={sectionRef} className="max-w-[1100px] mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">OUR WORK</span>
-          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[56px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
+          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
             Built by us.<br />Ready to inspire you.
           </h2>
           <p className="scroll-hidden font-body text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
@@ -68,7 +71,7 @@ const Portfolio = () => {
 
         {projects.map((p, i) => (
           <div key={i} className="scroll-hidden mt-10 rounded-3xl p-8 md:p-12 overflow-hidden" style={{
-            background: 'rgba(0, 26, 61, 0.35)',
+            background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
             border: '1px solid rgba(149,124,61,0.2)',
           }}>
             <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${p.reversed ? 'lg:grid-flow-dense' : ''}`}>
@@ -85,9 +88,11 @@ const Portfolio = () => {
 
                 <div className="flex flex-wrap gap-2 mt-5">
                   {p.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 rounded-full font-body text-xs text-agency-text-secondary" style={{
-                      background: 'rgba(0,26,61,0.5)',
+                    <span key={tag} className="px-3 py-1 rounded-full font-body text-xs" style={{
+                      background: 'hsla(var(--card-bg),0.35)',
                       border: '1px solid rgba(149,124,61,0.2)',
+                      color: 'hsl(var(--text-secondary))',
+                      backdropFilter: 'blur(6px)',
                     }}>
                       {tag}
                     </span>
@@ -103,12 +108,13 @@ const Portfolio = () => {
                   >
                     View Live Site →
                   </a>
-                  <a href="https://wa.me/917499289391" target="_blank" rel="noopener noreferrer"
+                  <button
+                    onClick={() => setWhatsappOpen(true)}
                     className="font-body font-medium text-sm px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5"
                     style={{ background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 20px rgba(201,168,76,0.25)' }}
                   >
                     Want something like this?
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -123,6 +129,8 @@ const Portfolio = () => {
           More projects coming soon. Currently building for our first clients.
         </p>
       </div>
+
+      <WhatsAppSelector isOpen={whatsappOpen} onClose={() => setWhatsappOpen(false)} />
     </section>
   );
 };

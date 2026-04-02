@@ -1,19 +1,21 @@
 import { useEffect, useState } from 'react';
+import WhatsAppSelector from './WhatsAppSelector';
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
+  const [whatsappOpen, setWhatsappOpen] = useState(false);
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'var(--hero-bg, #001020)' }}>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'hsl(var(--bg-primary))' }}>
       {/* Gold glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
+      <div className="absolute inset-0 pointer-events-none hero-gold-glow" style={{
         background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)'
       }} />
       {/* Navy glow bottom-right */}
-      <div className="absolute inset-0 pointer-events-none" style={{
+      <div className="absolute inset-0 pointer-events-none hero-navy-glow" style={{
         background: 'radial-gradient(ellipse 400px 300px at 90% 90%, rgba(0,35,73,0.8) 0%, transparent 70%)'
       }} />
       {/* Light beam */}
@@ -35,7 +37,7 @@ const Hero = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="font-display font-bold text-[48px] md:text-[88px] leading-[1.05] tracking-[-0.03em]">
+        <h1 className="font-display font-bold text-[48px] md:text-[72px] leading-[1.05] tracking-[-0.03em]">
           {['We Build Websites', 'That Get You'].map((line, i) => (
             <span key={i} className={`block text-agency-text transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
@@ -91,10 +93,8 @@ const Hero = () => {
           >
             See Our Work
           </button>
-          <a
-            href="https://wa.me/917499289391"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setWhatsappOpen(true)}
             className="font-body font-semibold text-[15px] h-[52px] px-8 rounded-[10px] flex items-center transition-all duration-300 hover:bg-[rgba(201,168,76,0.08)]"
             style={{
               border: '1.5px solid rgba(201,168,76,0.5)',
@@ -102,7 +102,7 @@ const Hero = () => {
             }}
           >
             Chat on WhatsApp →
-          </a>
+          </button>
         </div>
 
         {/* Microcopy */}
@@ -120,6 +120,8 @@ const Hero = () => {
           <circle cx="10" cy="10" r="2" fill="#4A5D7A" className="animate-scroll-dot" />
         </svg>
       </div>
+
+      <WhatsAppSelector isOpen={whatsappOpen} onClose={() => setWhatsappOpen(false)} />
     </section>
   );
 };
