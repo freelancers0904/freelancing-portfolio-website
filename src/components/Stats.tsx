@@ -25,10 +25,10 @@ const Stats = () => {
               ref={stat.ref}
               className={`scroll-hidden text-center py-6 ${i < 2 ? 'md:border-r md:border-[rgba(149,124,61,0.2)]' : ''}`}
             >
-              <div className="font-display font-bold text-[56px] md:text-[64px]" style={{ color: '#C9A84C', textShadow: '0 0 30px rgba(201,168,76,0.3)' }}>
+              <div className="font-display font-bold text-[42px] sm:text-[56px] md:text-[64px]" style={{ color: '#C9A84C', textShadow: '0 0 30px rgba(201,168,76,0.3)' }}>
                 {stat.display}
               </div>
-              <div className="font-body font-medium text-xs text-agency-text-muted uppercase tracking-[2px] mt-2">
+              <div className="font-body font-medium text-[10px] sm:text-xs text-agency-text-muted uppercase tracking-[2px] mt-2">
                 {stat.label}
               </div>
             </div>
@@ -37,14 +37,14 @@ const Stats = () => {
       </div>
 
       {/* Marquee */}
-      <div className="mt-12 overflow-hidden relative" style={{ 
+      <div className="mt-8 md:mt-12 overflow-hidden relative" style={{ 
         background: 'linear-gradient(180deg, rgba(201,168,76,0.05) 0%, rgba(0,0,0,0) 100%)',
         borderTop: '1px solid rgba(149,124,61,0.2)',
         borderBottom: '1px solid rgba(149,124,61,0.2)',
       }}>
-        <div className="py-6 md:py-8 animate-marquee whitespace-nowrap inline-flex">
+        <div className="py-4 md:py-6 animate-marquee whitespace-nowrap inline-flex">
           {[0, 1].map((k) => (
-            <span key={k} className="font-body font-medium text-[15px] tracking-[0.5px] mr-0">
+            <span key={k} className="font-body font-medium text-[12px] sm:text-[14px] md:text-[15px] tracking-[0.5px] mr-0">
               {marqueeText.split('✦').map((part, j) => (
                 <span key={j}>
                   <span className="text-agency-text-secondary">{part}</span>

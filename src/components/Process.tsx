@@ -16,10 +16,10 @@ const Process = () => {
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">HOW WE WORK</span>
-          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[56px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
+          <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[56px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
             From idea to live website<br />in 3–5 days.
           </h2>
-          <p className="scroll-hidden font-body text-base text-agency-text-secondary text-center max-w-[500px] mx-auto mt-5">
+          <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[500px] mx-auto mt-5">
             A simple, transparent process that respects your time.
           </p>
         </div>
@@ -31,10 +31,10 @@ const Process = () => {
             background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4) 20%, rgba(201,168,76,0.6) 50%, rgba(201,168,76,0.4) 80%, transparent)',
           }} />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
             {steps.map((step, i) => (
               <div key={i} className="scroll-hidden flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center font-display font-bold text-xl shrink-0" style={{
+                <div className="w-12 md:w-14 h-12 md:h-14 rounded-full flex items-center justify-center font-display font-bold text-lg md:text-xl shrink-0" style={{
                   background: 'rgba(201,168,76,0.1)',
                   border: '1.5px solid rgba(201,168,76,0.4)',
                   boxShadow: '0 0 20px rgba(201,168,76,0.15)',
@@ -42,9 +42,9 @@ const Process = () => {
                 }}>
                   {i + 1}
                 </div>
-                <div className="font-body font-semibold text-[13px] mt-4 tracking-[0.5px]" style={{ color: '#C9A84C' }}>{step.day}</div>
-                <div className="font-display font-semibold text-[16px] text-agency-text mt-2">{step.title}</div>
-                <p className="font-body text-[13px] text-agency-text-secondary max-w-[160px] leading-[1.6] mt-2">{step.body}</p>
+                <div className="font-body font-semibold text-[12px] md:text-[13px] mt-3 md:mt-4 tracking-[0.5px]" style={{ color: '#C9A84C' }}>{step.day}</div>
+                <div className="font-display font-semibold text-sm md:text-[16px] text-agency-text mt-1 md:mt-2">{step.title}</div>
+                <p className="font-body text-[12px] md:text-[13px] text-agency-text-secondary max-w-[160px] leading-[1.6] mt-1.5 md:mt-2">{step.body}</p>
               </div>
             ))}
           </div>

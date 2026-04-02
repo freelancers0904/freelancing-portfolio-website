@@ -37,7 +37,7 @@ const Hero = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="font-display font-bold text-[48px] md:text-[72px] leading-[1.05] tracking-[-0.03em]">
+        <h1 className="font-display font-bold text-[36px] sm:text-[48px] md:text-[72px] leading-[1.05] tracking-[-0.03em]">
           {['We Build Websites', 'That Get You'].map((line, i) => (
             <span key={i} className={`block text-agency-text transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
@@ -66,7 +66,7 @@ const Hero = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className={`font-body text-lg text-agency-text-secondary max-w-[520px] mx-auto mt-8 leading-[1.7] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[520px] mx-auto mt-8 leading-[1.7] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.7s' }}
         >
           High-converting, AI-powered websites for gyms and local businesses — live in 3 to 5 days.

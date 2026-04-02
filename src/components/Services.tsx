@@ -48,18 +48,18 @@ const Services = () => {
         <div className="text-center scroll-hidden">
           <span className="section-label">WHAT WE DO</span>
         </div>
-        <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
+        <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
           <span className="text-agency-text">We don't just build websites.</span><br />
           <span className="text-agency-text">We build systems that bring you </span>
           <span style={{ color: '#C9A84C' }}>customers.</span>
         </h2>
-        <p className="scroll-hidden font-body text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
+        <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
           Every website we deliver comes with a conversion strategy, lead capture, and automation — not just design.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-16">
           {services.map((s, i) => (
-            <div key={i} className="scroll-hidden relative overflow-hidden p-9 transition-all duration-[350ms]" style={{
+            <div key={i} className="scroll-hidden relative overflow-hidden p-6 md:p-9 transition-all duration-[350ms]" style={{
               background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: '1px solid rgba(149, 124, 61, 0.2)',
               borderRadius: 20,

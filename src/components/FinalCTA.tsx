@@ -21,11 +21,11 @@ const FinalCTA = () => {
 
       <div ref={sectionRef} className="relative max-w-4xl mx-auto px-6 text-center">
         <span className="scroll-hidden section-label">READY TO GROW?</span>
-        <h2 className="scroll-hidden font-display font-bold text-[44px] md:text-[72px] leading-[1.05] tracking-[-0.03em] mt-8">
+        <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[72px] leading-[1.05] tracking-[-0.03em] mt-8">
           <span className="text-agency-text">Your website should be your</span><br />
           <span style={{ color: '#C9A84C' }}>best salesperson.</span>
         </h2>
-        <p className="scroll-hidden font-body text-lg text-agency-text-secondary max-w-[480px] mx-auto mt-5 leading-[1.7]">
+        <p className="scroll-hidden font-body text-sm sm:text-lg text-agency-text-secondary max-w-[480px] mx-auto mt-5 leading-[1.7]">
           Let's build something that actually works for your business — delivered in 3–5 days.
         </p>
 

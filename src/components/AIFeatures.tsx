@@ -39,18 +39,18 @@ const AIFeatures = () => {
       <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">AI POWERED</span>
-          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
+          <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
             <span className="text-agency-text">While you sleep, your website </span>
             <span style={{ color: '#C9A84C' }}>works.</span>
           </h2>
-          <p className="scroll-hidden font-body text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
+          <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
             Every site we build comes with intelligent features that capture leads, respond instantly, and keep your pipeline full — automatically.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-16">
           {features.map((f, i) => (
-            <div key={i} className="scroll-hidden p-8 transition-all duration-[350ms]" style={{
+            <div key={i} className="scroll-hidden p-6 md:p-8 transition-all duration-[350ms]" style={{
               background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: '1px solid rgba(149, 124, 61, 0.18)',
               borderRadius: 20,

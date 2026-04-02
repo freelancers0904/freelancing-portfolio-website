@@ -49,17 +49,17 @@ const Pricing = () => {
       <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">PRICING</span>
-          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
+          <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
             Transparent pricing.<br />No surprises.
           </h2>
-          <p className="scroll-hidden font-body text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5">
+          <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5">
             Every plan includes strategy, design, development, and delivery.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 items-start">
           {plans.map((plan, i) => (
-            <div key={i} className={`scroll-hidden relative p-9 rounded-[20px] ${plan.elevated ? 'md:-translate-y-4' : ''}`} style={{
+            <div key={i} className={`scroll-hidden relative p-6 md:p-9 rounded-[20px] ${plan.elevated ? 'md:-translate-y-4' : ''}`} style={{
               background: plan.elevated ? 'rgba(201,168,76,0.07)' : `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: plan.elevated ? '1.5px solid rgba(201,168,76,0.5)' : '1px solid rgba(149,124,61,0.2)',
               backdropFilter: 'blur(16px)',

@@ -61,16 +61,16 @@ const Portfolio = () => {
       <div ref={sectionRef} className="max-w-[1100px] mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">OUR WORK</span>
-          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
+          <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
             Built by us.<br />Ready to inspire you.
           </h2>
-          <p className="scroll-hidden font-body text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
+          <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
             Both below are fully functional demo websites — built to show exactly what your business could look like online.
           </p>
         </div>
 
         {projects.map((p, i) => (
-          <div key={i} className="scroll-hidden mt-10 rounded-3xl p-8 md:p-12 overflow-hidden" style={{
+          <div key={i} className="scroll-hidden mt-10 rounded-3xl p-6 md:p-8 lg:p-12 overflow-hidden" style={{
             background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
             border: '1px solid rgba(149,124,61,0.2)',
           }}>

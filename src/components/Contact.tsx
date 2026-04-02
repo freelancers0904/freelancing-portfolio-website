@@ -30,17 +30,17 @@ const Contact = () => {
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">CONTACT</span>
-          <h2 className="scroll-hidden font-display font-bold text-4xl md:text-[56px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
+          <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[56px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
             Let's build something great.
           </h2>
-          <p className="scroll-hidden font-body text-base text-agency-text-secondary text-center max-w-[500px] mx-auto mt-5">
+          <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[500px] mx-auto mt-5">
             Tell us about your business. We reply within 24 hours.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6 lg:gap-10 mt-16">
           {/* Form */}
-          <div className="scroll-hidden glass-card p-8 md:p-10">
+          <div className="scroll-hidden glass-card p-6 md:p-8 lg:p-10">
             {!submitted ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <input type="text" placeholder="Full Name" required style={inputStyle}
