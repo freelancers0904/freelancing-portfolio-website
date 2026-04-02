@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <footer style={{ background: 'hsl(var(--bg-primary))', borderTop: '1px solid rgba(149,124,61,0.15)' }}>
       <div className="max-w-6xl mx-auto px-6 pt-12 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {/* Logo */}
           <div className="sm:col-span-1">
             <div className="flex items-center gap-2.5">
@@ -31,8 +31,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <p className="font-body font-medium text-[10px] md:text-[11px] tracking-[1.5px] text-agency-text-muted uppercase mb-4">Quick Links</p>
-            <div className="flex flex-col gap-2 md:gap-3">
+            <p className="font-body font-medium text-[10px] md:text-[11px] tracking-[1.5px] text-agency-text-muted uppercase mb-3 md:mb-4">Quick Links</p>
+            <div className="grid grid-cols-2 md:grid-cols-1 gap-2 md:gap-2">
               {navLinks.map((link) => (
                 <button key={link.href} onClick={() => handleClick(link.href)}
                   className="text-left font-body text-xs md:text-sm text-agency-text-secondary hover:text-agency-text transition-colors"

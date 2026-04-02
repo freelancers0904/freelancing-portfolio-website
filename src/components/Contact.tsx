@@ -92,10 +92,10 @@ const Contact = () => {
                 <div>
                   <h4 className="font-body font-semibold text-base text-agency-text">Chat on WhatsApp</h4>
                   <div className="mt-2 space-y-1">
-                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors">
-                      Chat with Mahesh: +91 74992 89391
+                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                      Chat with Mahesh: +91 7499289391
                     </button>
-                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors">
+                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                       Chat with Palak: +91 86601 21462
                     </button>
                   </div>
