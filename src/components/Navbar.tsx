@@ -78,7 +78,7 @@ const Navbar = () => {
             <span className="relative w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }}>
               <span className="absolute inset-0 rounded-[3px] animate-pulse-dot" style={{ background: '#C9A84C' }} />
             </span>
-            <span className="font-display font-semibold text-lg text-agency-text">[AGENCY NAME]</span>
+            {/* Agency name will be added here once finalized */}
           </a>
 
           {/* Center nav */}
@@ -155,9 +155,9 @@ const Navbar = () => {
               className="md:hidden flex flex-col gap-1.5 w-6"
               onClick={() => setMenuOpen(!menuOpen)}
             >
-              <span className={`block h-[1.5px] bg-agency-text transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[4.5px]' : ''}`} />
-              <span className={`block h-[1.5px] bg-agency-text transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-              <span className={`block h-[1.5px] bg-agency-text transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[4.5px]' : ''}`} />
+              <span className="block h-[1.5px] transition-all duration-300" style={{ background: '#C9A84C' }} />
+              <span className={`block h-[1.5px] transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} style={{ background: '#C9A84C' }} />
+              <span className={`block h-[1.5px] transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[4.5px]' : ''}`} style={{ background: '#C9A84C' }} />
             </button>
           </div>
         </div>
