@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="sm:col-span-1">
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }} />
-              <span className="font-display font-semibold text-base md:text-lg text-agency-text">[AGENCY NAME]</span>
+              {/* Agency name will be added here once finalized */}
             </div>
             <p className="font-body text-xs md:text-[13px] text-agency-text-muted mt-2">We build systems. Not just websites.</p>
           </div>
