@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mt-8 md:mt-10 pt-5" style={{ borderTop: '1px solid rgba(149,124,61,0.1)' }}>
-          <p className="font-body text-[11px] md:text-[13px] text-agency-text-muted">© 2026 [AGENCY NAME]. Built with purpose in India.</p>
+          <p className="font-body text-[11px] md:text-[13px] text-agency-text-muted">© 2026. Built with purpose in India.</p>
           <p className="font-body text-[11px] md:text-[13px] text-agency-text-muted">Kolhapur, Maharashtra 🇮🇳</p>
         </div>
       </div>
