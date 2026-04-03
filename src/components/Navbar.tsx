@@ -152,12 +152,13 @@ const Navbar = () => {
 
             {/* Hamburger */}
             <button
-              className="md:hidden flex flex-col gap-1.5 w-6"
+              className="md:hidden flex flex-col gap-[6px] w-7 p-1"
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Menu"
             >
-              <span className="block h-[1.5px] transition-all duration-300" style={{ background: '#C9A84C' }} />
-              <span className={`block h-[1.5px] transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} style={{ background: '#C9A84C' }} />
-              <span className={`block h-[1.5px] transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[4.5px]' : ''}`} style={{ background: '#C9A84C' }} />
+              <span className={`block h-[2.5px] rounded-full transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[8.5px]' : ''}`} style={{ background: '#C9A84C', boxShadow: '0 0 4px rgba(201,168,76,0.5)' }} />
+              <span className={`block h-[2.5px] rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : ''}`} style={{ background: '#C9A84C', boxShadow: '0 0 4px rgba(201,168,76,0.5)' }} />
+              <span className={`block h-[2.5px] rounded-full transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[8.5px]' : ''}`} style={{ background: '#C9A84C', boxShadow: '0 0 4px rgba(201,168,76,0.5)' }} />
             </button>
           </div>
         </div>

@@ -37,7 +37,7 @@ const Hero = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="font-display font-bold text-[36px] sm:text-[48px] md:text-[72px] leading-[1.05] tracking-[-0.03em]">
+        <h1 className="font-display font-bold text-[38px] sm:text-[52px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
           {['We Build Websites', 'That Get You'].map((line, i) => (
             <span key={i} className={`block text-agency-text transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}

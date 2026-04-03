@@ -48,9 +48,9 @@ const Services = () => {
         <div className="text-center scroll-hidden">
           <span className="section-label">WHAT WE DO</span>
         </div>
-        <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
-          <span className="text-agency-text">We don't just build websites.</span><br />
-          <span className="text-agency-text">We build systems that bring you </span>
+        <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em]" style={{ wordSpacing: '0.04em' }}>
+          <span className="text-agency-text">We don't just build websites.</span><br className="hidden sm:block" />
+          <span className="text-agency-text block sm:inline mt-1 sm:mt-0">We build systems that bring you </span>
           <span style={{ color: '#C9A84C' }}>customers.</span>
         </h2>
         <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
