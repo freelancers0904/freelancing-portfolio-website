@@ -78,7 +78,7 @@ const Navbar = () => {
             <span className="relative w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }}>
               <span className="absolute inset-0 rounded-[3px] animate-pulse-dot" style={{ background: '#C9A84C' }} />
             </span>
-            <span className="font-display font-semibold text-lg text-agency-text">[AGENCY NAME]</span>
+            {/* Agency name will be added here once finalized */}
           </a>
 
           {/* Center nav */}
