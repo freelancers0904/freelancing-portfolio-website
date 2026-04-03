@@ -61,7 +61,7 @@ const Portfolio = () => {
       <div ref={sectionRef} className="max-w-[1100px] mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">OUR WORK</span>
-          <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em] text-agency-text">
+          <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] text-agency-text" style={{ wordSpacing: '0.04em' }}>
             Built by us.<br />Ready to inspire you.
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">

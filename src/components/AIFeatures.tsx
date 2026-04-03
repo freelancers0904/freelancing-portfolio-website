@@ -39,7 +39,7 @@ const AIFeatures = () => {
       <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">AI POWERED</span>
-          <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[48px] text-center mt-6 leading-tight tracking-[-0.03em]">
+          <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em]" style={{ wordSpacing: '0.04em' }}>
             <span className="text-agency-text">While you sleep, your website </span>
             <span style={{ color: '#C9A84C' }}>works.</span>
           </h2>

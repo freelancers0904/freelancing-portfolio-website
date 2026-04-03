@@ -21,7 +21,7 @@ const FinalCTA = () => {
 
       <div ref={sectionRef} className="relative max-w-4xl mx-auto px-6 text-center">
         <span className="scroll-hidden section-label">READY TO GROW?</span>
-        <h2 className="scroll-hidden font-display font-bold text-3xl sm:text-4xl md:text-[72px] leading-[1.05] tracking-[-0.03em] mt-8">
+        <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[40px] md:text-[64px] leading-[1.15] tracking-[-0.02em] mt-8" style={{ wordSpacing: '0.04em' }}>
           <span className="text-agency-text">Your website should be your</span><br />
           <span style={{ color: '#C9A84C' }}>best salesperson.</span>
         </h2>
