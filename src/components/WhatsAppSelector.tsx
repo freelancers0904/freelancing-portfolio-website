@@ -14,7 +14,7 @@ const WhatsAppSelector = ({ isOpen, onClose }: WhatsAppSelectorProps) => {
   ];
 
   const handleWhatsAppClick = (phone: string) => {
-    window.open(`https://api.whatsapp.com/send?phone=${phone}`, '_blank');
+    window.open(`https://wa.me/${phone}`, '_blank', 'noopener,noreferrer');
     onClose();
   };
 
