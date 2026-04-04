@@ -9,7 +9,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ background: 'hsl(var(--bg-primary))' }}>
+    <section className="hero-section relative flex min-h-[calc(100svh-68px)] items-start justify-center overflow-hidden md:min-h-screen md:items-center" style={{ background: 'hsl(var(--bg-primary))' }}>
       {/* Gold glow */}
       <div className="absolute inset-0 pointer-events-none hero-gold-glow" style={{
         background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)'

@@ -72,9 +72,9 @@ const Navbar = () => {
             : '1px solid transparent',
         }}
       >
-        <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5">
+          <a href="#" className="flex flex-shrink-0 items-center gap-2.5" aria-label="Go to top">
             <span className="relative w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }}>
               <span className="absolute inset-0 rounded-[3px] animate-pulse-dot" style={{ background: '#C9A84C' }} />
             </span>
@@ -82,7 +82,7 @@ const Navbar = () => {
           </a>
 
           {/* Center nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 md:flex">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -106,7 +106,7 @@ const Navbar = () => {
           </div>
 
           {/* Theme toggle + CTA + hamburger */}
-          <div className="flex items-center gap-4">
+          <div className="ml-auto flex items-center gap-4">
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
@@ -152,13 +152,19 @@ const Navbar = () => {
 
             {/* Hamburger */}
             <button
-              className="md:hidden flex flex-col gap-[6px] w-7 p-1"
+              className="relative z-[1001] flex min-h-[44px] min-w-[44px] flex-col items-center justify-center gap-[5px] rounded-full border px-0 py-0 md:hidden"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Menu"
+              aria-expanded={menuOpen}
+              style={{
+                background: 'hsl(var(--bg-secondary) / 0.84)',
+                borderColor: 'hsl(var(--border))',
+                boxShadow: '0 10px 28px hsl(var(--background) / 0.35)',
+              }}
             >
-              <span className={`block h-[2.5px] rounded-full transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[8.5px]' : ''}`} style={{ background: '#C9A84C', boxShadow: '0 0 4px rgba(201,168,76,0.5)' }} />
-              <span className={`block h-[2.5px] rounded-full transition-all duration-300 ${menuOpen ? 'opacity-0 scale-0' : ''}`} style={{ background: '#C9A84C', boxShadow: '0 0 4px rgba(201,168,76,0.5)' }} />
-              <span className={`block h-[2.5px] rounded-full transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[8.5px]' : ''}`} style={{ background: '#C9A84C', boxShadow: '0 0 4px rgba(201,168,76,0.5)' }} />
+              <span className={`block h-[2.5px] w-[22px] rounded-full transition-all duration-300 ${menuOpen ? 'translate-y-[7.5px] rotate-45' : ''}`} style={{ background: 'hsl(var(--accent-gold))', boxShadow: '0 0 8px hsl(var(--accent-gold) / 0.55)' }} />
+              <span className={`block h-[2.5px] w-[22px] rounded-full transition-all duration-300 ${menuOpen ? 'scale-0 opacity-0' : ''}`} style={{ background: 'hsl(var(--accent-gold))', boxShadow: '0 0 8px hsl(var(--accent-gold) / 0.55)' }} />
+              <span className={`block h-[2.5px] w-[22px] rounded-full transition-all duration-300 ${menuOpen ? '-translate-y-[7.5px] -rotate-45' : ''}`} style={{ background: 'hsl(var(--accent-gold))', boxShadow: '0 0 8px hsl(var(--accent-gold) / 0.55)' }} />
             </button>
           </div>
         </div>
