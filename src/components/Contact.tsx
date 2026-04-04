@@ -1,6 +1,21 @@
 import { useState, FormEvent } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { CONTACT_EMAIL } from '@/config/contact';
+import { submitContactForm } from '@/lib/submitContactForm';
 import WhatsAppSelector from './WhatsAppSelector';
+
+function buildContactEnquiry(fullName: string, businessType: string, email: string, message: string) {
+  return [
+    "Hi — I'm contacting you through your portfolio site's contact form.",
+    '',
+    `Name: ${fullName}`,
+    `Business type: ${businessType}`,
+    `Email: ${email}`,
+    '',
+    'Project / message:',
+    message,
+  ].join('\n');
+}
 
 const inputStyle = {
   background: 'hsla(var(--card-bg), var(--card-bg-alpha))',
@@ -19,9 +34,43 @@ const Contact = () => {
   const sectionRef = useScrollAnimation();
   const [submitted, setSubmitted] = useState(false);
   const [whatsappOpen, setWhatsappOpen] = useState(false);
+  const [waPrefill, setWaPrefill] = useState<string | null>(null);
+  const [fullName, setFullName] = useState('');
+  const [businessType, setBusinessType] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent) => {
+  const openWhatsAppPicker = () => {
+    setWaPrefill(null);
+    setWhatsappOpen(true);
+  };
+
+  const closeWhatsAppPicker = () => {
+    setWhatsappOpen(false);
+    setWaPrefill(null);
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
+    const bodyText = buildContactEnquiry(fullName, businessType, email, message);
+    setSubmitting(true);
+    try {
+      await submitContactForm({ fullName, businessType, email, message, bodyText });
+      setSubmitted(true);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Something went wrong.';
+      setSubmitError(msg);
+      setWaPrefill(bodyText);
+      setWhatsappOpen(true);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleSendChoice = () => {
     setSubmitted(true);
   };
 
@@ -43,11 +92,11 @@ const Contact = () => {
           <div className="scroll-hidden glass-card p-6 md:p-8 lg:p-10">
             {!submitted ? (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <input type="text" placeholder="Full Name" required style={inputStyle}
+                <input type="text" placeholder="Full Name" required value={fullName} onChange={(e) => setFullName(e.target.value)} style={inputStyle}
                   onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.6)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.1)'; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(149,124,61,0.2)'; e.currentTarget.style.boxShadow = 'none'; }}
                 />
-                <select required style={{ ...inputStyle, appearance: 'none' as const }}
+                <select required value={businessType} onChange={(e) => setBusinessType(e.target.value)} style={{ ...inputStyle, appearance: 'none' as const }}
                   onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.6)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.1)'; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(149,124,61,0.2)'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
@@ -56,18 +105,23 @@ const Contact = () => {
                     <option key={o} value={o} style={{ background: 'hsl(var(--bg-secondary))', color: 'hsl(var(--text-primary))' }}>{o}</option>
                   ))}
                 </select>
-                <input type="email" placeholder="Email Address" required style={inputStyle}
+                <input type="email" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} style={inputStyle}
                   onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.6)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.1)'; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(149,124,61,0.2)'; e.currentTarget.style.boxShadow = 'none'; }}
                 />
-                <textarea placeholder="Tell us about your project" rows={5} required style={{ ...inputStyle, resize: 'vertical' as const }}
+                <textarea placeholder="Tell us about your project" rows={5} required value={message} onChange={(e) => setMessage(e.target.value)} style={{ ...inputStyle, resize: 'vertical' as const }}
                   onFocus={(e) => { e.currentTarget.style.borderColor = 'rgba(201,168,76,0.6)'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(201,168,76,0.1)'; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(149,124,61,0.2)'; e.currentTarget.style.boxShadow = 'none'; }}
                 />
-                <button type="submit" className="w-full h-[52px] rounded-[10px] font-body font-semibold text-[15px] transition-all duration-300 hover:-translate-y-0.5"
+                {submitError && (
+                  <p className="font-body text-sm rounded-lg px-3 py-2" style={{ background: 'rgba(220,38,38,0.12)', color: '#fecaca', border: '1px solid rgba(220,38,38,0.35)' }}>
+                    {submitError}
+                  </p>
+                )}
+                <button type="submit" disabled={submitting} className="w-full h-[52px] rounded-[10px] font-body font-semibold text-[15px] transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
                   style={{ background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 30px rgba(201,168,76,0.25)' }}
                 >
-                  Send Message →
+                  {submitting ? 'Sending…' : 'Send Message →'}
                 </button>
               </form>
             ) : (
@@ -77,7 +131,7 @@ const Contact = () => {
                   <path d="M20 32l8 8 16-16" stroke="#C9A84C" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"
                     strokeDasharray="40" className="animate-draw-line" />
                 </svg>
-                <p className="font-body font-medium text-base mt-6" style={{ color: '#C9A84C' }}>Message sent! We'll reply within 24 hours.</p>
+                <p className="font-body font-medium text-base mt-6 text-center px-2" style={{ color: '#C9A84C' }}>Thanks! We received your message and will reply within 24 hours.</p>
               </div>
             )}
           </div>
@@ -92,15 +146,15 @@ const Contact = () => {
                 <div>
                   <h4 className="font-body font-semibold text-base text-agency-text">Chat on WhatsApp</h4>
                   <div className="mt-2 space-y-1">
-                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                    <button type="button" onClick={openWhatsAppPicker} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                       Chat with Mahesh: +91 7499289391
                     </button>
-                    <button onClick={() => setWhatsappOpen(true)} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
+                    <button type="button" onClick={openWhatsAppPicker} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text transition-colors whitespace-nowrap overflow-hidden text-ellipsis">
                       Chat with Palak: +91 86601 21462
                     </button>
                   </div>
                   <p className="font-body text-xs text-agency-text-muted mt-1">We typically reply within 30 minutes</p>
-                  <button onClick={() => setWhatsappOpen(true)}
+                  <button type="button" onClick={openWhatsAppPicker}
                     className="inline-block mt-3 px-4 py-2 rounded-lg font-body text-[13px] font-medium transition-all duration-300"
                     style={{ border: '1.5px solid rgba(37,211,102,0.4)', color: '#25D366' }}
                   >
@@ -119,8 +173,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-body font-semibold text-base text-agency-text">Send an Email</h4>
-                  <p className="font-body text-sm text-agency-text-secondary">hello@agencyname.com</p>
-                  <a href="mailto:hello@agencyname.com"
+                  <p className="font-body text-sm text-agency-text-secondary break-all">{CONTACT_EMAIL}</p>
+                  <a href={`mailto:${CONTACT_EMAIL}`}
                     className="inline-block mt-3 px-4 py-2 rounded-lg font-body text-[13px] font-medium transition-all duration-300"
                     style={{ border: '1.5px solid rgba(201,168,76,0.4)', color: '#C9A84C' }}
                   >
@@ -137,7 +191,12 @@ const Contact = () => {
         </div>
       </div>
 
-      <WhatsAppSelector isOpen={whatsappOpen} onClose={() => setWhatsappOpen(false)} />
+      <WhatsAppSelector
+        isOpen={whatsappOpen}
+        onClose={closeWhatsAppPicker}
+        prefilledMessage={waPrefill}
+        onSendChoice={handleSendChoice}
+      />
     </section>
   );
 };

@@ -59,7 +59,8 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-16">
           {services.map((s, i) => (
-            <div key={i} className="scroll-hidden relative overflow-hidden p-6 md:p-9 transition-all duration-[350ms]" style={{
+            <div key={i} className="scroll-hidden relative overflow-hidden p-6 md:p-9 transition-all" style={{
+              transitionDuration: '350ms',
               background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: '1px solid rgba(149, 124, 61, 0.2)',
               borderRadius: 20,

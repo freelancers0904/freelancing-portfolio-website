@@ -1,17 +1,37 @@
-import { useState } from 'react';
+import { CONTACT_EMAIL } from '@/config/contact';
 
 interface WhatsAppSelectorProps {
   isOpen: boolean;
   onClose: () => void;
+  /** When set (e.g. after contact form submit), WhatsApp links and email include this text. */
+  prefilledMessage?: string | null;
+  /** Called when the visitor picks WhatsApp or email to send the enquiry. */
+  onSendChoice?: () => void;
 }
 
-const WhatsAppSelector = ({ isOpen, onClose }: WhatsAppSelectorProps) => {
+const WhatsAppSelector = ({
+  isOpen,
+  onClose,
+  prefilledMessage,
+  onSendChoice,
+}: WhatsAppSelectorProps) => {
   if (!isOpen) return null;
 
   const contacts = [
     { name: 'Mahesh', phone: '917499289391', emoji: '👨‍💼' },
     { name: 'Palak', phone: '918660121462', emoji: '👩‍💼' },
   ];
+
+  const hasPrefill = Boolean(prefilledMessage?.trim());
+  const encodedPrefill = hasPrefill ? encodeURIComponent(prefilledMessage!.trim()) : '';
+  const mailtoHref = hasPrefill
+    ? `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('New enquiry — portfolio contact form')}&body=${encodedPrefill}`
+    : `mailto:${CONTACT_EMAIL}`;
+
+  const handleChannelClick = () => {
+    onSendChoice?.();
+    onClose();
+  };
 
   return (
     <>
@@ -32,7 +52,7 @@ const WhatsAppSelector = ({ isOpen, onClose }: WhatsAppSelectorProps) => {
         <div className="px-8 py-6 border-b" style={{ borderColor: 'rgba(149,124,61,0.15)' }}>
           <div className="flex items-center justify-between">
             <h2 className="font-display font-bold text-xl" style={{ color: 'hsl(var(--text-primary))' }}>
-              Chat with Us
+              {hasPrefill ? 'Send your message' : 'Chat with Us'}
             </h2>
             <button
               onClick={onClose}
@@ -43,19 +63,60 @@ const WhatsAppSelector = ({ isOpen, onClose }: WhatsAppSelectorProps) => {
             </button>
           </div>
           <p className="font-body text-sm mt-1" style={{ color: 'hsl(var(--text-secondary))' }}>
-            Choose a team member to chat with
+            {hasPrefill
+              ? 'Choose WhatsApp or email — your enquiry is filled in; just tap send in the app that opens.'
+              : 'Choose a team member to chat with'}
           </p>
         </div>
 
         {/* Content */}
         <div className="px-8 py-6 space-y-3">
+          {hasPrefill && (
+            <a
+              href={mailtoHref}
+              onClick={handleChannelClick}
+              className="w-full p-4 rounded-xl transition-all duration-300 flex items-center gap-4 group"
+              style={{
+                background: 'hsl(var(--card), 0.5)',
+                border: '1.5px solid rgba(201,168,76,0.35)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'hsl(var(--card), 0.8)';
+                e.currentTarget.style.borderColor = 'rgba(201,168,76,0.55)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'hsl(var(--card), 0.5)';
+                e.currentTarget.style.borderColor = 'rgba(201,168,76,0.35)';
+              }}
+            >
+              <span className="text-3xl">✉️</span>
+              <div className="text-left">
+                <div className="font-display font-semibold text-base" style={{ color: 'hsl(var(--text-primary))' }}>
+                  Send by email
+                </div>
+                <div className="font-body text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>
+                  {CONTACT_EMAIL}
+                </div>
+              </div>
+              <div className="ml-auto flex items-center justify-center w-10 h-10 rounded-full" style={{ background: '#C9A84C' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#001020" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+            </a>
+          )}
           {contacts.map((contact) => (
             <a
               key={contact.phone}
-              href={`https://wa.me/${contact.phone}`}
+              href={
+                hasPrefill
+                  ? `https://wa.me/${contact.phone}?text=${encodedPrefill}`
+                  : `https://wa.me/${contact.phone}`
+              }
               target="_blank"
               rel="noopener noreferrer"
-              onClick={onClose}
+              onClick={hasPrefill ? handleChannelClick : onClose}
               className="w-full p-4 rounded-xl transition-all duration-300 flex items-center gap-4 group"
               style={{
                 background: 'hsl(var(--card), 0.5)',

@@ -50,7 +50,8 @@ const AIFeatures = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-16">
           {features.map((f, i) => (
-            <div key={i} className="scroll-hidden p-6 md:p-8 transition-all duration-[350ms]" style={{
+            <div key={i} className="scroll-hidden p-6 md:p-8 transition-all" style={{
+              transitionDuration: '350ms',
               background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: '1px solid rgba(149, 124, 61, 0.18)',
               borderRadius: 20,
