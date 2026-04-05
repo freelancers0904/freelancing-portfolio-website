@@ -52,7 +52,7 @@ const Footer = () => {
             >
               WhatsApp →
             </button>
-            <p className="font-body text-xs md:text-[13px] text-agency-text-secondary">hello@agencyname.com</p>
+            <a href="mailto:freelancers0904@gmail.com" className="font-body text-xs md:text-[13px] text-agency-text-secondary hover:text-agency-text transition-colors">freelancers0904@gmail.com</a>
           </div>
         </div>
 
