@@ -173,7 +173,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-body font-semibold text-base text-agency-text">Send an Email</h4>
-                  <p className="font-body text-sm text-agency-text-secondary break-all">{CONTACT_EMAIL}</p>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text break-all transition-colors">{CONTACT_EMAIL}</a>
                   <a href={`mailto:${CONTACT_EMAIL}`}
                     className="inline-block mt-3 px-4 py-2 rounded-lg font-body text-[13px] font-medium transition-all duration-300"
                     style={{ border: '1.5px solid rgba(201,168,76,0.4)', color: '#C9A84C' }}
