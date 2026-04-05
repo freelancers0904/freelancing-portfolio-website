@@ -173,8 +173,10 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-body font-semibold text-base text-agency-text">Send an Email</h4>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="block font-body text-sm text-agency-text-secondary hover:text-agency-text break-all transition-colors">{CONTACT_EMAIL}</a>
-                  <a href={`mailto:${CONTACT_EMAIL}`}
+                  <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`} target="_blank" rel="noopener noreferrer" className="block font-body text-sm text-agency-text-secondary hover:text-agency-text break-all transition-colors">{CONTACT_EMAIL}</a>
+                  <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONTACT_EMAIL)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block mt-3 px-4 py-2 rounded-lg font-body text-[13px] font-medium transition-all duration-300"
                     style={{ border: '1.5px solid rgba(201,168,76,0.4)', color: '#C9A84C' }}
                   >
