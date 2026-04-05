@@ -4,7 +4,7 @@ import WhatsAppSelector from './WhatsAppSelector';
 
 const plans = [
   {
-    price: '₹5,000 – ₹10,000',
+    price: '₹7,000 – ₹12,000',
     name: 'Starter',
     nameColor: '#C9A84C',
     forText: 'For businesses that need to get online fast.',
