@@ -4,32 +4,82 @@ import WhatsAppSelector from './WhatsAppSelector';
 
 const plans = [
   {
-    price: '₹7,000 – ₹12,000',
+    price: '₹8,000 – ₹12,000',
     name: 'Starter',
+    subtitle: 'Basic Online Presence',
     nameColor: '#C9A84C',
-    forText: 'For businesses that need to get online fast.',
-    features: ['Up to 5 pages', 'Mobile-first responsive design', 'WhatsApp CTA button', 'Basic contact form', '1 round of revisions', 'Delivered in 3–5 days'],
+    forText: 'For businesses that need to get online quickly',
+    features: [
+      'Up to 5-page mobile-responsive website',
+      'WhatsApp & Call CTA integration',
+      'Basic contact form',
+      'Clean, fast-loading design',
+      'Basic on-page SEO setup',
+      '1 round of revisions',
+      'Delivered in 3–5 days',
+    ],
+    outcome: 'Get your business online so customers can easily find and contact you',
     cta: 'Get Started →',
     ctaStyle: 'outline' as const,
     elevated: false,
   },
   {
-    price: '₹15,000 – ₹25,000',
+    price: '₹18,000 – ₹25,000',
     name: 'Growth',
+    subtitle: 'Lead Generation System',
     nameColor: '#C9A84C',
-    forText: 'For gyms and local businesses ready to generate leads.',
-    features: ['Everything in Starter', 'AI chatbot integration', 'Smart lead capture form', 'WhatsApp automation setup', 'On-page SEO setup', 'Google Analytics integration', '2 rounds of revisions', '1 month post-launch support', 'Delivered in 3–5 days'],
+    forText: 'For businesses ready to increase enquiries and customers',
+    features: [
+      'High-conversion website (offers, testimonials, strong CTA)',
+      'Trust-building sections (reviews, results, highlights)',
+      'Smart lead capture form',
+      'WhatsApp automation setup',
+      'AI chatbot (basic enquiry handling)',
+      'Complete Google Business Profile optimization',
+      '20–30 real photos upload on Google',
+      'Google Maps visibility improvement',
+      'Advanced on-page SEO optimization',
+      'Proper SEO setup for better Google ranking',
+      'Weekly Google posts (2–3 for 1 month)',
+      'Review generation system (scripts + guidance)',
+      'Offer setup (discounts / trials / campaigns)',
+      'Basic performance tracking (calls, views, messages)',
+      '2 rounds of revisions',
+      '1 month growth support',
+      'Delivered in 3–5 days (setup phase)',
+    ],
+    outcome: 'Increase visibility on Google, generate more calls & enquiries, and build strong trust that converts into customers',
     cta: 'Start Growing →',
     ctaStyle: 'filled' as const,
     elevated: true,
     badge: 'MOST POPULAR',
   },
   {
-    price: '₹30,000 – ₹50,000+',
+    price: '₹35,000 – ₹50,000+',
     name: 'Scale',
+    subtitle: '3 Month Growth & Automation System',
     nameColor: '#C9A84C',
-    forText: 'For businesses that want a complete automated system.',
-    features: ['Everything in Growth', 'Booking / appointment system', 'CRM integration', 'Full workflow automation', 'Multi-page content strategy', 'Custom domain + email setup', '3 months priority support', 'Delivered in 5–7 days'],
+    forText: 'For businesses that want consistent growth and local dominance',
+    features: [
+      'Advanced high-conversion website with full funnel setup',
+      'Complete Google Business Profile optimization & management',
+      '30+ photos + continuous updates',
+      'Advanced SEO strategy (on-page + local SEO)',
+      'Continuous SEO optimization for ranking improvement',
+      'Weekly Google posts (for 3 months)',
+      'Aggressive review growth strategy',
+      'Monthly offer campaigns',
+      'Competitor positioning strategy',
+      'WhatsApp automation + smart follow-up system',
+      'Lead tracking system (basic CRM flow)',
+      'Missed enquiry recovery setup',
+      'AI chatbot (advanced flow)',
+      'Monthly performance reports',
+      'Continuous optimization for better ranking & conversion',
+      '3 months priority support',
+      'Delivered in 5–7 days (setup phase)',
+    ],
+    outcome: 'Achieve higher Google ranking, consistent enquiry flow, better conversion rates, and strong competitive positioning',
     cta: "Let's Build This →",
     ctaStyle: 'outline' as const,
     elevated: false,
@@ -59,7 +109,7 @@ const Pricing = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 items-start">
           {plans.map((plan, i) => (
-            <div key={i} className={`scroll-hidden relative p-6 md:p-9 rounded-[20px] ${plan.elevated ? 'md:-translate-y-4' : ''}`} style={{
+            <div key={i} className={`scroll-hidden relative p-6 md:p-9 rounded-[20px] flex flex-col ${plan.elevated ? 'md:-translate-y-4' : ''}`} style={{
               background: plan.elevated ? 'rgba(201,168,76,0.07)' : `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: plan.elevated ? '1.5px solid rgba(201,168,76,0.5)' : '1px solid rgba(149,124,61,0.2)',
               backdropFilter: 'blur(16px)',
@@ -75,13 +125,16 @@ const Pricing = () => {
                 </div>
               )}
 
-              <div className="font-display font-bold text-4xl text-agency-text">{plan.price}</div>
-              <div className="font-display font-semibold text-xl mt-2" style={{ color: plan.nameColor }}>{plan.name}</div>
+              <div className="font-display font-bold text-3xl sm:text-4xl text-agency-text">{plan.price}</div>
+              <div className="mt-2">
+                <span className="font-display font-semibold text-xl" style={{ color: plan.nameColor }}>{plan.name}</span>
+                <span className="font-body text-sm text-agency-text-secondary ml-1.5">– {plan.subtitle}</span>
+              </div>
               <p className="font-body text-sm text-agency-text-secondary mt-1.5">{plan.forText}</p>
 
               <div className="h-px my-6" style={{ background: 'rgba(149,124,61,0.15)' }} />
 
-              <div className="space-y-3">
+              <div className="space-y-3 flex-1">
                 {plan.features.map((f, j) => (
                   <div key={j} className="flex items-start gap-2.5">
                     <span className="w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold mt-0.5 shrink-0" style={{
@@ -93,8 +146,19 @@ const Pricing = () => {
                 ))}
               </div>
 
+              {/* Outcome block */}
+              <div className="mt-6 p-4 rounded-xl" style={{ background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.12)' }}>
+                <div className="flex items-start gap-2.5">
+                  <span className="text-base mt-0.5">🎯</span>
+                  <div>
+                    <span className="font-body font-semibold text-xs tracking-wide uppercase" style={{ color: '#C9A84C' }}>Outcome</span>
+                    <p className="font-body text-sm text-agency-text-secondary mt-1 leading-relaxed">{plan.outcome}</p>
+                  </div>
+                </div>
+              </div>
+
               <button onClick={() => setWhatsappOpen(true)}
-                className={`block w-full text-center mt-8 py-3 rounded-[10px] font-body font-medium text-sm transition-all duration-300 hover:-translate-y-0.5`}
+                className="block w-full text-center mt-8 py-3 rounded-[10px] font-body font-medium text-sm transition-all duration-300 hover:-translate-y-0.5"
                 style={
                   plan.ctaStyle === 'filled'
                     ? { background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 30px rgba(201,168,76,0.4)', height: 52, lineHeight: '52px', padding: 0, fontWeight: 600 }
@@ -120,6 +184,20 @@ const Pricing = () => {
           >
             Chat on WhatsApp — It's Free →
           </button>
+        </div>
+
+        {/* How Growth Works */}
+        <div className="scroll-hidden mt-8 rounded-[16px] py-6 px-8 md:px-10 flex items-start gap-4" style={{
+          background: 'rgba(201,168,76,0.04)',
+          border: '1px solid rgba(201,168,76,0.1)',
+        }}>
+          <span className="text-2xl shrink-0 mt-0.5">🚀</span>
+          <div>
+            <h4 className="font-display font-semibold text-base text-agency-text">How Growth Works</h4>
+            <p className="font-body text-sm text-agency-text-secondary mt-1.5 leading-relaxed">
+              Setup is completed in a few days, but real growth (visibility, enquiries, ranking) improves gradually over 2–4 weeks through continuous optimization, activity, and engagement.
+            </p>
+          </div>
         </div>
       </div>
 
