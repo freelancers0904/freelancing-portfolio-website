@@ -83,11 +83,11 @@ const Pricing = () => {
         background: 'radial-gradient(ellipse 500px 300px at 50% 100%, rgba(201,168,76,0.05), transparent)',
       }} />
 
-      <div ref={sectionRef} className="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div ref={sectionRef} className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="scroll-hidden section-label">PRICING</span>
           <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] text-agency-text" style={{ wordSpacing: '0.04em' }}>
-            Transparent pricing.<br />No surprises.
+            Transparent Pricing.<br />Clear Results.
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5">
             Every plan includes strategy, design, development, and delivery.
@@ -134,12 +134,12 @@ const Pricing = () => {
               </div>
 
               {/* Outcome block */}
-              <div className="mt-5 p-4 rounded-xl" style={{ background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.15)' }}>
-                <div className="flex items-start gap-2.5">
-                  <span className="text-base mt-0.5">🎯</span>
+              <div className="mt-5 p-4 rounded-xl" style={{ background: 'rgba(201,168,76,0.10)', border: '1px solid rgba(201,168,76,0.22)' }}>
+                <div className="flex items-start gap-3">
+                  <span className="text-lg mt-0.5 shrink-0">🎯</span>
                   <div>
-                    <span className="font-body font-semibold text-xs tracking-wide uppercase" style={{ color: '#C9A84C' }}>Outcome</span>
-                    <p className="font-display font-semibold text-sm text-agency-text mt-1 leading-relaxed">{plan.outcome}</p>
+                    <span className="font-body font-bold text-xs tracking-widest uppercase" style={{ color: '#C9A84C' }}>Outcome</span>
+                    <p className="font-display font-semibold text-[15px] mt-1.5 leading-relaxed" style={{ color: 'hsl(var(--text-primary))' }}>{plan.outcome}</p>
                   </div>
                 </div>
               </div>
