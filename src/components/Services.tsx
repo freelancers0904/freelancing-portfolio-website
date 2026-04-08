@@ -3,8 +3,8 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 const services = [
   {
     tag: 'CORE SERVICE',
-    title: 'High-Converting Website Design',
-    body: 'Built around how your customer thinks — not just your brand colours. Every page, button, and word is designed to move visitors toward contacting you.',
+    title: 'Complete Online Presence',
+    body: 'Website, Google Business Profile, local SEO, and WhatsApp automation — everything a local business needs to get found online and convert visitors into paying customers.',
     glowColor: 'rgba(201,168,76,0.12)',
     hasBottomLine: false,
     icon: (
@@ -27,8 +27,8 @@ const services = [
   },
   {
     tag: 'OUR PROMISE',
-    title: '3–5 Day Delivery',
-    body: 'From requirement call to live website in 3 to 5 days. Not weeks. Not months. We move fast so your business never waits.',
+    title: 'Set Up Fast. Grown Consistently.',
+    body: 'Your presence goes live in 5–7 days. Then we work with you every month to improve rankings, generate reviews, and bring more customers through the door.',
     glowColor: 'rgba(201,168,76,0.1)',
     hasBottomLine: true,
     icon: (
@@ -50,11 +50,11 @@ const Services = () => {
         </div>
         <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em]" style={{ wordSpacing: '0.04em' }}>
           <span className="text-agency-text">We don't just build websites.</span><br className="hidden sm:block" />
-          <span className="text-agency-text block sm:inline mt-1 sm:mt-0">We build systems that bring you </span>
-          <span style={{ color: '#C9A84C' }}>customers.</span>
+          <span className="text-agency-text block sm:inline mt-1 sm:mt-0">We build the system that makes</span><br className="hidden sm:block" />
+          <span style={{ color: '#C9A84C' }}>customers find and choose you.</span>
         </h2>
         <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
-          Every website we deliver comes with a conversion strategy, lead capture, and automation — not just design.
+          Every project includes strategy, design, local SEO, Google presence, and automation — not just a pretty page. And we stay with you to grow it consistently.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-16">

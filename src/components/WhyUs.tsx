@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 const messages = [
   {
     type: 'incoming',
-    text: 'New lead from your website 🎉',
-    details: ['Name: Rahul S.', 'Phone: +91 98XXX XXXXX', 'Plan: Growth'],
+    text: 'New enquiry from Google 🎉',
+    details: ['Name: Rahul S.', 'Phone: +91 98XXX XXXXX', 'Found via: Google Maps'],
     time: '2:34 AM ✓✓',
   },
   {
@@ -102,9 +102,10 @@ const WhyUs = () => {
   const sectionRef = useScrollAnimation();
 
   const diffs = [
-    { emoji: '⚡', text: 'Website live in 3–5 days — guaranteed' },
-    { emoji: '🤖', text: 'AI chatbot + WhatsApp automation included' },
-    { emoji: '💬', text: 'You talk directly to the people building your site' },
+    { emoji: '⚡', text: 'Website live in 5–7 days — guaranteed' },
+    { emoji: '🤖', text: 'Google Business + WhatsApp automation included' },
+    { emoji: '📈', text: 'Monthly growth management — we don\'t disappear after launch' },
+    { emoji: '💬', text: 'You talk directly to the people doing the work' },
   ];
 
   return (
@@ -113,17 +114,17 @@ const WhyUs = () => {
         <div>
           <span className="scroll-hidden font-body font-semibold text-xs tracking-[2px] uppercase" style={{ color: '#C9A84C' }}>WHY US?</span>
           <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] lg:text-[52px] leading-[1.2] tracking-[-0.02em] mt-4" style={{ wordSpacing: '0.04em' }}>
-            <span className="text-agency-text">Other agencies take weeks.</span><br />
-            <span className="text-agency-text">We launch in </span>
+            <span className="text-agency-text">Other agencies build websites.</span><br />
+            <span className="text-agency-text">We build your entire</span><br />
             <span className="relative" style={{ color: '#C9A84C' }}>
-              days.
+              online presence.
               <svg className="absolute -bottom-1 left-0 w-full" height="8" viewBox="0 0 100 8" fill="none">
                 <path d="M2 6C30 2 60 8 98 4" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeDasharray="100" className="animate-draw-line" />
               </svg>
             </span>
           </h2>
           <p className="scroll-hidden font-body text-base text-agency-text-secondary leading-[1.8] mt-6 max-w-[460px]">
-            Most web agencies juggle 10 clients at once. We are a focused 2-person team — which means when you work with us, you get our full attention, fast execution, and direct communication. No project managers. No delays. No excuses.
+            Most web agencies hand you a website and disappear. We are a focused 2-person team — Mahesh and Palak — that builds your complete digital presence and stays to grow it. Google Maps ranking, review systems, WhatsApp funnels, a converting website. No project managers. No delays. No excuses.
           </p>
           <div className="scroll-hidden mt-9 space-y-4">
             {diffs.map((d, i) => (

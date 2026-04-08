@@ -33,12 +33,12 @@ const Hero = () => {
           }}
         >
           <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ background: '#C9A84C' }} />
-          <span className="font-body font-medium text-[13px]" style={{ color: '#C9A84C' }}>⚡ Websites Delivered in 3–5 Days</span>
+          <span className="font-body font-medium text-[13px]" style={{ color: '#C9A84C' }}>⚡ Full Online Presence in 5–7 Days</span>
         </div>
 
         {/* Headline */}
         <h1 className="font-display font-bold text-[38px] sm:text-[52px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
-          {['We Build Websites', 'That Get You'].map((line, i) => (
+          {['We Put Your Business', 'Where Customers'].map((line, i) => (
             <span key={i} className={`block text-agency-text transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
             >
@@ -48,7 +48,7 @@ const Hero = () => {
           <span className={`block relative inline-block transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             style={{ transitionDelay: '0.6s', color: '#C9A84C' }}
           >
-            Customers.
+            Find You.
             <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
               <path
                 d="M2 8 C40 2, 80 12, 120 6 S180 2, 198 8"
@@ -69,7 +69,7 @@ const Hero = () => {
         <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[520px] mx-auto mt-8 leading-[1.7] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.7s' }}
         >
-          High-converting, AI-powered websites for gyms and local businesses — live in 3 to 5 days.
+          Complete online presence for local businesses — website, Google ranking, WhatsApp automation, and lead systems — set up fast, grown consistently.
         </p>
 
         {/* CTAs */}
@@ -109,7 +109,7 @@ const Hero = () => {
         <p className={`font-body text-[13px] text-agency-text-muted mt-6 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ transitionDelay: '0.9s' }}
         >
-          No retainer. No agency overhead. Just results.
+          No retainer. No tech headaches. Just customers finding you.
         </p>
       </div>
 

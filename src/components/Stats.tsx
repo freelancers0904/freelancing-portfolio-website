@@ -3,17 +3,17 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Stats = () => {
   const sectionRef = useScrollAnimation();
-  const stat1 = useCountUp(5, 1500, '', '');
-  const stat2 = useCountUp(2, 1500, '', '+');
+  const stat1 = useCountUp(7, 1500, '', '');
+  const stat2 = useCountUp(3, 1500, '', '+');
   const stat3 = useCountUp(100, 2000, '', '%');
 
   const stats = [
-    { ref: stat1.ref, display: `3–${stat1.display}`, label: 'Day Delivery' },
-    { ref: stat2.ref, display: stat2.display, label: 'Websites Built' },
-    { ref: stat3.ref, display: stat3.display, label: 'Client Satisfaction Goal' },
+    { ref: stat1.ref, display: `5–${stat1.display}`, label: 'Day Full Setup' },
+    { ref: stat2.ref, display: stat2.display, label: 'Businesses Launched' },
+    { ref: stat3.ref, display: stat3.display, label: 'Done-For-You Goal' },
   ];
 
-  const marqueeText = 'High-Converting Websites ✦ AI Chatbots ✦ WhatsApp Automation ✦ Lead Capture Systems ✦ 3–5 Day Delivery ✦ Gym Websites ✦ Local Business Websites ✦ Mobile-First Design ✦ ';
+  const marqueeText = 'Google Business Setup ✦ Local SEO ✦ WhatsApp Automation ✦ Lead Capture ✦ Website Design ✦ Review Generation ✦ Google Maps Ranking ✦ AI Chatbot ✦ Mobile-First Design ✦ Consistent Growth ✦ ';
 
   return (
     <section style={{ background: 'hsl(var(--bg-secondary))', borderTop: '1px solid rgba(149,124,61,0.15)', borderBottom: '1px solid rgba(149,124,61,0.15)' }}>
