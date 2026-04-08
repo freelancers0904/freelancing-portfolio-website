@@ -14,6 +14,7 @@ const plans = [
       'Basic contact form',
       'Clean, fast-loading design',
       'Basic on-page SEO setup',
+      'Google Business Profile setup',
       'Delivered in 3–5 days',
     ],
     outcome: 'Get your business online so customers can easily find and contact you',
@@ -87,10 +88,10 @@ const Pricing = () => {
         <div className="text-center">
           <span className="scroll-hidden section-label">PRICING</span>
           <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] text-agency-text" style={{ wordSpacing: '0.04em' }}>
-            Transparent Pricing.<br />Clear Results.
+            One system.<br /><span style={{ color: '#C9A84C' }}>Three ways to grow.</span>
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5">
-            Every plan includes strategy, design, development, and delivery.
+            Every plan includes strategy, design, local SEO, Google setup, and delivery. Pick the level of growth you want.
           </p>
         </div>
 
@@ -187,7 +188,7 @@ const Pricing = () => {
           <div>
             <h4 className="font-display font-semibold text-base text-agency-text">How Growth Works</h4>
             <p className="font-body text-sm text-agency-text-secondary mt-1.5 leading-relaxed">
-              Setup is completed in a few days, but real growth (visibility, enquiries, ranking) improves gradually over 2–4 weeks through continuous optimization, activity, and engagement.
+              Setup is completed in days. Real growth — visibility, enquiries, ranking — builds gradually over 2–4 weeks and compounds every month through consistent work.
             </p>
           </div>
         </div>

@@ -1,11 +1,11 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const steps = [
-  { day: 'Day 1', title: 'Requirement Discussion', body: 'One call. We learn your business and goals.' },
-  { day: 'Day 1–2', title: 'Design Preview', body: "A real mockup in 24–48 hours. We refine until it's right." },
-  { day: 'Day 2–4', title: 'Development', body: 'Fast, clean build. Mobile-first. AI features integrated.' },
-  { day: 'Day 4–5', title: 'Revisions', body: 'You review, we adjust. No delays.' },
-  { day: 'Day 5', title: 'Launch 🚀', body: 'Live website. Full access handed over.' },
+  { day: 'Day 1', title: 'Requirement Discussion', body: 'One call. We learn your business, your customers, and your goals.' },
+  { day: 'Day 1–2', title: 'Strategy + Design Preview', body: "A real mockup in 24–48 hours. We refine until it's right." },
+  { day: 'Day 2–5', title: 'Full Build', body: 'Website + Google Business + WhatsApp automation. Fast, clean, mobile-first.' },
+  { day: 'Day 5–6', title: 'Review & Revisions', body: 'You review everything. We adjust. No delays.' },
+  { day: 'Day 7', title: '🚀 Launch', body: 'Live website. Google live. Automation running. Full access handed over.' },
 ];
 
 const Process = () => {
@@ -17,7 +17,7 @@ const Process = () => {
         <div className="text-center">
           <span className="scroll-hidden section-label">HOW WE WORK</span>
           <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] text-agency-text" style={{ wordSpacing: '0.04em' }}>
-            From idea to live website<br />in 3–5 days.
+            From zero to fully online<br />in 5–7 days.
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[500px] mx-auto mt-5">
             A simple, transparent process that respects your time.

@@ -8,8 +8,8 @@ const features = [
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M14 9l-2-2-2 2"/></svg>,
   },
   {
-    title: 'Smart Lead Forms',
-    body: 'Forms that adapt to visitor input — qualifying leads and collecting exactly what you need to close faster.',
+    title: 'Google Business Management',
+    body: 'Optimised profile, weekly Google posts, photo updates, and a review generation strategy that builds your local ranking over time.',
     gold: false,
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>,
   },
@@ -38,13 +38,13 @@ const AIFeatures = () => {
 
       <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
-          <span className="scroll-hidden section-label">AI POWERED</span>
+          <span className="scroll-hidden section-label">ALWAYS WORKING</span>
           <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em]" style={{ wordSpacing: '0.04em' }}>
-            <span className="text-agency-text">While you sleep, your website </span>
-            <span style={{ color: '#C9A84C' }}>works.</span>
+            <span className="text-agency-text">While you focus on your business,</span><br />
+            <span style={{ color: '#C9A84C' }}>your online presence works.</span>
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
-            Every site we build comes with intelligent features that capture leads, respond instantly, and keep your pipeline full — automatically.
+            Every setup we deliver runs on autopilot — capturing leads, responding instantly, and keeping your Google ranking growing month after month.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ const AIFeatures = () => {
           border: '1px solid rgba(149,124,61,0.25)',
         }}>
           <p className="font-display font-semibold text-xl text-agency-text">
-            Most of our clients receive their first automated lead within 48 hours of launch.
+            Most of our clients start receiving enquiries within 48–72 hours of going live.
           </p>
         </div>
       </div>
