@@ -39,7 +39,6 @@ export default defineConfig(({ mode }) => ({
             '@radix-ui/react-popover',
             '@radix-ui/react-scroll-area',
             '@radix-ui/react-select',
-            '@radix-ui/react-sheet',
             '@radix-ui/react-tabs',
           ],
         },
