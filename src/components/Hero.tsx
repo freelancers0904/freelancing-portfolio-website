@@ -23,9 +23,9 @@ const Hero = () => {
         background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)'
       }} />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-6 py-16 max-w-4xl mx-auto md:py-24">
         {/* Badge */}
-        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-10 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-12 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           style={{
             background: 'rgba(201,168,76,0.1)',
             border: '1px solid rgba(201,168,76,0.3)',
@@ -37,9 +37,12 @@ const Hero = () => {
         </div>
 
         {/* Headline */}
-        <h1 className="font-display font-bold text-[38px] sm:text-[52px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
+        <div className={`mx-auto mb-6 h-[1px] w-20 rounded-full bg-[#C9A84C]/30 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+          style={{ transitionDelay: '0.3s' }}
+        />
+        <h1 className="font-display font-bold text-[32px] sm:text-[48px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
           {['We Put Your Business', 'Where Customers'].map((line, i) => (
-            <span key={i} className={`block text-agency-text transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            <span key={i} className={`block text-agency-text transition-all duration-700 ${i < 2 ? 'sm:whitespace-nowrap' : ''} ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
             >
               {line}
@@ -66,19 +69,21 @@ const Hero = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[520px] mx-auto mt-8 leading-[1.7] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto mt-10 leading-[1.9] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.7s' }}
         >
-          Complete online presence for local businesses — website, Google ranking, WhatsApp automation, and lead systems — set up fast, grown consistently.
+          Complete online presence for local businesses with website,<br className="hidden sm:block" />
+          Google ranking, WhatsApp automation, and lead systems<br className="hidden sm:block" />
+          — set up fast, grown consistently.
         </p>
 
         {/* CTAs */}
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-14 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.8s' }}
         >
           <button
             onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-            className="font-body font-semibold text-[15px] h-[52px] px-8 rounded-[10px] transition-all duration-300 hover:-translate-y-0.5"
+            className="font-body font-semibold text-[14px] sm:text-[15px] h-11 sm:h-[52px] px-6 sm:px-8 rounded-[10px] transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg, #957C3D, #C9A84C)',
               color: '#001020',
@@ -95,7 +100,7 @@ const Hero = () => {
           </button>
           <button
             onClick={() => setWhatsappOpen(true)}
-            className="font-body font-semibold text-[15px] h-[52px] px-8 rounded-[10px] flex items-center transition-all duration-300 hover:bg-[rgba(201,168,76,0.08)]"
+            className="font-body font-semibold text-[14px] sm:text-[15px] h-11 sm:h-[52px] px-6 sm:px-8 rounded-[10px] flex items-center justify-center transition-all duration-300 hover:bg-[rgba(201,168,76,0.08)] w-full sm:w-auto"
             style={{
               border: '1.5px solid rgba(201,168,76,0.5)',
               color: '#C9A84C',
@@ -106,7 +111,7 @@ const Hero = () => {
         </div>
 
         {/* Microcopy */}
-        <p className={`font-body text-[13px] text-agency-text-muted mt-6 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        <p className={`font-body text-[13px] text-agency-text-muted mt-8 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ transitionDelay: '0.9s' }}
         >
           No retainer. No tech headaches. Just customers finding you.

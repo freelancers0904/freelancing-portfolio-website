@@ -43,21 +43,22 @@ const Services = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="services" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-primary))' }}>
+    <section id="services" className="py-20 md:py-24" style={{ background: 'hsl(var(--bg-primary))' }}>
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center scroll-hidden">
           <span className="section-label">WHAT WE DO</span>
         </div>
-        <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em]" style={{ wordSpacing: '0.04em' }}>
-          <span className="text-agency-text">We don't just build websites.</span><br className="hidden sm:block" />
-          <span className="text-agency-text block sm:inline mt-1 sm:mt-0">We build the system that makes</span><br className="hidden sm:block" />
-          <span style={{ color: '#C9A84C' }}>customers find and choose you.</span>
+        <h2 className="scroll-hidden font-display font-bold text-[22px] sm:text-[30px] md:text-[48px] text-center mt-6 max-w-[880px] mx-auto px-2 leading-[1.2] tracking-[-0.02em]" style={{ wordSpacing: '0.04em' }}>
+          <span className="block text-agency-text whitespace-normal sm:whitespace-nowrap">We don't just build websites.</span>
+          <span className="block text-agency-text mt-2 whitespace-normal sm:whitespace-nowrap">We build the system that makes</span>
+          <span className="block mt-2 whitespace-normal sm:whitespace-nowrap" style={{ color: '#C9A84C' }}>customers find and choose you.</span>
         </h2>
-        <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
+        <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[560px] mx-auto mt-7 leading-[1.95]">
           Every project includes strategy, design, local SEO, Google presence, and automation — not just a pretty page. And we stay with you to grow it consistently.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 mt-14">
+
           {services.map((s, i) => (
             <div key={i} className="scroll-hidden relative overflow-hidden p-6 md:p-9 transition-all" style={{
               transitionDuration: '350ms',
@@ -89,7 +90,7 @@ const Services = () => {
                 {s.tag}
               </div>
               <h3 className="font-display font-semibold text-[22px] text-agency-text mt-3">{s.title}</h3>
-              <p className="font-body text-[15px] text-agency-text-secondary leading-[1.7] mt-3">{s.body}</p>
+              <p className="font-body text-[15px] text-agency-text-secondary leading-[1.7] mt-3 text-justify">{s.body}</p>
 
               {s.hasBottomLine && (
                 <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(90deg, #957C3D, #C9A84C, #957C3D)' }} />

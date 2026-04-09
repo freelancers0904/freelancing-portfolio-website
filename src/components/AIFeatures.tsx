@@ -38,17 +38,17 @@ const AIFeatures = () => {
 
       <div ref={sectionRef} className="relative max-w-6xl mx-auto px-6">
         <div className="text-center">
-          <span className="scroll-hidden section-label">ALWAYS WORKING</span>
-          <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em]" style={{ wordSpacing: '0.04em' }}>
+          <span className="scroll-hidden section-label text-[10px] sm:text-[12px]">ALWAYS WORKING</span>
+          <h2 className="scroll-hidden font-display font-bold text-[22px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] px-2" style={{ wordSpacing: '0.04em' }}>
             <span className="text-agency-text">While you focus on your business,</span><br />
             <span style={{ color: '#C9A84C' }}>your online presence works.</span>
           </h2>
-          <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 leading-[1.8]">
+          <p className="scroll-hidden font-body text-xs sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5 px-2 leading-[1.8]">
             Every setup we deliver runs on autopilot — capturing leads, responding instantly, and keeping your Google ranking growing month after month.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 mt-14 sm:mt-16">
           {features.map((f, i) => (
             <div key={i} className="scroll-hidden p-6 md:p-8 transition-all" style={{
               transitionDuration: '350ms',
@@ -68,24 +68,24 @@ const AIFeatures = () => {
                 e.currentTarget.style.boxShadow = 'none';
               }}
             >
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{
+              <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl flex items-center justify-center" style={{
                 background: f.gold ? 'rgba(201,168,76,0.1)' : 'rgba(0,35,73,0.6)',
                 border: `1px solid ${f.gold ? 'rgba(201,168,76,0.25)' : 'rgba(201,168,76,0.2)'}`,
               }}>
                 {f.icon}
               </div>
-              <h3 className="font-display font-semibold text-lg text-agency-text mt-4">{f.title}</h3>
-              <p className="font-body text-[14px] text-agency-text-secondary leading-[1.7] mt-2">{f.body}</p>
+              <h3 className="font-display font-semibold text-base sm:text-lg text-agency-text mt-3 sm:mt-4">{f.title}</h3>
+              <p className="font-body text-[12px] sm:text-[14px] text-agency-text-secondary leading-[1.6] sm:leading-[1.7] mt-2 text-justify">{f.body}</p>
             </div>
           ))}
         </div>
 
         {/* Statement bar */}
-        <div className="scroll-hidden mt-10 text-center py-7 px-10 rounded-2xl" style={{
+        <div className="scroll-hidden mt-10 text-center py-5 sm:py-7 px-4 sm:px-10 rounded-2xl" style={{
           background: 'linear-gradient(135deg, rgba(149,124,61,0.12), rgba(0,35,73,0.6))',
           border: '1px solid rgba(149,124,61,0.25)',
         }}>
-          <p className="font-display font-semibold text-xl text-agency-text">
+          <p className="font-display font-semibold text-base sm:text-xl text-agency-text">
             Most of our clients start receiving enquiries within 48–72 hours of going live.
           </p>
         </div>

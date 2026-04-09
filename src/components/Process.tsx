@@ -1,11 +1,11 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const steps = [
-  { day: 'Day 1', title: 'Requirement Discussion', body: 'One call. We learn your business, your customers, and your goals.' },
-  { day: 'Day 1–2', title: 'Strategy + Design Preview', body: "A real mockup in 24–48 hours. We refine until it's right." },
-  { day: 'Day 2–5', title: 'Full Build', body: 'Website + Google Business + WhatsApp automation. Fast, clean, mobile-first.' },
-  { day: 'Day 5–6', title: 'Review & Revisions', body: 'You review everything. We adjust. No delays.' },
-  { day: 'Day 7', title: '🚀 Launch', body: 'Live website. Google live. Automation running. Full access handed over.' },
+  { day: 'Day 1', title: 'Discovery Call', body: 'We learn your business and goals.' },
+  { day: 'Day 1–2', title: 'Strategy + Design Preview', body: 'Real mockup in 24–48 hours.' },
+  { day: 'Day 2–5', title: 'Full Build', body: 'Website, Google, WhatsApp — all built.' },
+  { day: 'Day 5–6', title: 'Review & Revisions', body: 'You review. We adjust.' },
+  { day: 'Day 7', title: '🚀 Launch', body: 'Live. Full access handed over.' },
 ];
 
 const Process = () => {
@@ -31,10 +31,10 @@ const Process = () => {
             background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4) 20%, rgba(201,168,76,0.6) 50%, rgba(201,168,76,0.4) 80%, transparent)',
           }} />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-6">
             {steps.map((step, i) => (
               <div key={i} className="scroll-hidden flex flex-col items-center text-center">
-                <div className="w-12 md:w-14 h-12 md:h-14 rounded-full flex items-center justify-center font-display font-bold text-lg md:text-xl shrink-0" style={{
+                <div className="w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 rounded-full flex items-center justify-center font-display font-bold text-sm sm:text-lg md:text-xl shrink-0 mx-auto" style={{
                   background: 'rgba(201,168,76,0.1)',
                   border: '1.5px solid rgba(201,168,76,0.4)',
                   boxShadow: '0 0 20px rgba(201,168,76,0.15)',
@@ -42,9 +42,9 @@ const Process = () => {
                 }}>
                   {i + 1}
                 </div>
-                <div className="font-body font-semibold text-[12px] md:text-[13px] mt-3 md:mt-4 tracking-[0.5px]" style={{ color: '#C9A84C' }}>{step.day}</div>
-                <div className="font-display font-semibold text-sm md:text-[16px] text-agency-text mt-1 md:mt-2">{step.title}</div>
-                <p className="font-body text-[12px] md:text-[13px] text-agency-text-secondary max-w-[160px] leading-[1.6] mt-1.5 md:mt-2">{step.body}</p>
+                <div className="font-body font-semibold text-[11px] sm:text-[12px] md:text-[13px] mt-2 sm:mt-3 md:mt-4 tracking-[0.5px] text-center" style={{ color: '#C9A84C' }}>{step.day}</div>
+                <div className="font-display font-semibold text-xs sm:text-sm md:text-[16px] text-agency-text mt-1 md:mt-2 whitespace-normal text-center">{step.title}</div>
+                <p className="font-body text-[11px] sm:text-[12px] md:text-[13px] text-agency-text-secondary max-w-[160px] leading-[1.5] sm:leading-[1.6] mt-1 sm:mt-1.5 md:mt-2 text-center mx-auto">{step.body}</p>
               </div>
             ))}
           </div>
