@@ -23,9 +23,9 @@ const Hero = () => {
         background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)'
       }} />
 
-      <div className="relative z-10 text-center px-6 py-12 sm:py-16 max-w-4xl mx-auto md:py-24">
+      <div className="relative z-10 text-center px-6 pt-4 pb-8 sm:pt-8 sm:pb-12 max-w-4xl mx-auto md:py-24">
         {/* Badge */}
-        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-12 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           style={{
             background: 'rgba(201,168,76,0.1)',
             border: '1px solid rgba(201,168,76,0.3)',
@@ -40,7 +40,7 @@ const Hero = () => {
         <div className={`mx-auto mb-6 h-[1px] w-20 rounded-full bg-[#C9A84C]/30 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
           style={{ transitionDelay: '0.3s' }}
         />
-        <h1 className="font-display font-bold text-[32px] sm:text-[48px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
+        <h1 className="font-display font-bold text-[26px] sm:text-[44px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
           {['We Put Your Business', 'Where Customers'].map((line, i) => (
             <span key={i} className={`block text-agency-text transition-all duration-700 ${i < 2 ? 'sm:whitespace-nowrap' : ''} ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
@@ -69,7 +69,7 @@ const Hero = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto mt-8 sm:mt-10 leading-[1.9] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto mt-4 sm:mt-8 leading-[1.75] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.7s' }}
         >
           Complete online presence for local businesses with website,<br className="hidden sm:block" />
@@ -78,7 +78,7 @@ const Hero = () => {
         </p>
 
         {/* CTAs */}
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 sm:mt-10 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.8s' }}
         >
           <button
@@ -111,7 +111,7 @@ const Hero = () => {
         </div>
 
         {/* Microcopy */}
-        <p className={`font-body text-[13px] text-agency-text-muted mt-8 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        <p className={`font-body text-[13px] text-agency-text-muted mt-5 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ transitionDelay: '0.9s' }}
         >
           No retainer. No tech headaches. Just customers finding you.
@@ -119,7 +119,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
         <svg width="20" height="32" viewBox="0 0 20 32" fill="none" className="opacity-40">
           <rect x="1" y="1" width="18" height="30" rx="9" stroke="#4A5D7A" strokeWidth="1.5" />
           <circle cx="10" cy="10" r="2" fill="#4A5D7A" className="animate-scroll-dot" />
