@@ -23,7 +23,7 @@ const Hero = () => {
         background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)'
       }} />
 
-      <div className="relative z-10 text-center px-6 pt-1 pb-4 sm:pt-2 sm:pb-6 max-w-4xl mx-auto space-y-4 sm:space-y-6 md:space-y-8">
+      <div className="relative z-10 text-center px-6 pt-0 pb-4 sm:pt-0 sm:pb-4 max-w-4xl mx-auto space-y-3 sm:space-y-4 md:space-y-6">
         {/* Badge */}
         <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           style={{
