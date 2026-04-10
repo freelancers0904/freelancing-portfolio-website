@@ -119,7 +119,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-8">
         <svg width="20" height="32" viewBox="0 0 20 32" fill="none" className="opacity-40">
           <rect x="1" y="1" width="18" height="30" rx="9" stroke="#4A5D7A" strokeWidth="1.5" />
           <circle cx="10" cy="10" r="2" fill="#4A5D7A" className="animate-scroll-dot" />
