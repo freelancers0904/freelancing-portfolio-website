@@ -9,7 +9,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="hero-section relative flex min-h-[calc(100svh-68px)] items-center justify-center overflow-hidden md:min-h-screen" style={{ background: 'hsl(var(--bg-primary))' }}>
+    <section className="hero-section relative flex min-h-[calc(100svh-68px)] items-start justify-center overflow-hidden md:min-h-screen md:items-center" style={{ background: 'hsl(var(--bg-primary))' }}>
       {/* Gold glow */}
       <div className="absolute inset-0 pointer-events-none hero-gold-glow" style={{
         background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)'
@@ -23,9 +23,9 @@ const Hero = () => {
         background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)'
       }} />
 
-      <div className="relative z-10 text-center px-6 pt-0 pb-4 sm:pt-0 sm:pb-4 max-w-4xl mx-auto space-y-3 sm:space-y-4 md:space-y-6">
+      <div className="relative z-10 text-center px-6 pt-4 pb-8 sm:pt-8 sm:pb-12 max-w-4xl mx-auto md:py-24">
         {/* Badge */}
-        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           style={{
             background: 'rgba(201,168,76,0.1)',
             border: '1px solid rgba(201,168,76,0.3)',
@@ -37,7 +37,7 @@ const Hero = () => {
         </div>
 
         {/* Headline */}
-        <div className={`mx-auto h-[1px] w-20 rounded-full bg-[#C9A84C]/30 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
+        <div className={`mx-auto mb-6 h-[1px] w-20 rounded-full bg-[#C9A84C]/30 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
           style={{ transitionDelay: '0.3s' }}
         />
         <h1 className="font-display font-bold text-[26px] sm:text-[44px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
@@ -69,7 +69,7 @@ const Hero = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto leading-[1.75] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto mt-4 sm:mt-8 leading-[1.75] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.7s' }}
         >
           Complete online presence for local businesses with website,<br className="hidden sm:block" />
@@ -78,7 +78,7 @@ const Hero = () => {
         </p>
 
         {/* CTAs */}
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 sm:mt-10 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.8s' }}
         >
           <button
@@ -111,7 +111,7 @@ const Hero = () => {
         </div>
 
         {/* Microcopy */}
-        <p className={`font-body text-[13px] text-agency-text-muted transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        <p className={`font-body text-[13px] text-agency-text-muted mt-5 transition-all duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           style={{ transitionDelay: '0.9s' }}
         >
           No retainer. No tech headaches. Just customers finding you.
@@ -119,7 +119,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:bottom-8">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:bottom-8">
         <svg width="20" height="32" viewBox="0 0 20 32" fill="none" className="opacity-40">
           <rect x="1" y="1" width="18" height="30" rx="9" stroke="#4A5D7A" strokeWidth="1.5" />
           <circle cx="10" cy="10" r="2" fill="#4A5D7A" className="animate-scroll-dot" />
