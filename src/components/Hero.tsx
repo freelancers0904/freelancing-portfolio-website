@@ -23,7 +23,7 @@ const Hero = () => {
         background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)'
       }} />
 
-      <div className="relative z-10 text-center px-6 py-16 max-w-4xl mx-auto md:py-24">
+      <div className="relative z-10 text-center px-6 py-12 sm:py-16 max-w-4xl mx-auto md:py-24">
         {/* Badge */}
         <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-12 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           style={{
@@ -69,7 +69,7 @@ const Hero = () => {
         </h1>
 
         {/* Subheadline */}
-        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto mt-10 leading-[1.9] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto mt-8 sm:mt-10 leading-[1.9] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.7s' }}
         >
           Complete online presence for local businesses with website,<br className="hidden sm:block" />
@@ -78,7 +78,7 @@ const Hero = () => {
         </p>
 
         {/* CTAs */}
-        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-14 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 sm:mt-14 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.8s' }}
         >
           <button

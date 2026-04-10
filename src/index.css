@@ -288,8 +288,9 @@ body::before {
   }
 
   .hero-section {
-    padding-top: 72px !important;
-    padding-bottom: 32px !important;
+    padding-top: 0 !important;
+    padding-bottom: 24px !important;
+    min-height: calc(100svh - 68px) !important;
   }
 
   /* Better button sizing on mobile */
