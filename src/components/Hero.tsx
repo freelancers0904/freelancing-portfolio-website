@@ -36,22 +36,18 @@ const Hero = () => {
           <span className="font-body font-medium text-[13px]" style={{ color: '#C9A84C' }}>⚡ Full Online Presence in 5–7 Days</span>
         </div>
 
-        {/* Headline */}
+
+        {/* Headline - Improved alignment and wrapping */}
         <div className={`mx-auto mb-6 h-[1px] w-20 rounded-full bg-[#C9A84C]/30 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
           style={{ transitionDelay: '0.3s' }}
         />
-        <h1 className="font-display font-bold text-[26px] sm:text-[44px] md:text-[80px] leading-[1.15] tracking-[-0.02em]" style={{ wordSpacing: '0.05em' }}>
-          {['We Put Your Business', 'Where Customers'].map((line, i) => (
-            <span key={i} className={`block text-agency-text transition-all duration-700 ${i < 2 ? 'sm:whitespace-nowrap' : ''} ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-              style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
-            >
-              {line}
-            </span>
-          ))}
-          <span className={`block relative inline-block transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-            style={{ transitionDelay: '0.6s', color: '#C9A84C' }}
-          >
-            Find You.
+        <h1 className="font-display font-bold text-[2rem] sm:text-[2.75rem] md:text-[4.5rem] leading-tight tracking-[-0.02em] max-w-2xl mx-auto text-center" style={{ wordSpacing: '0.05em' }}>
+          <span className={`block transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.4s' }}>
+            We don&apos;t just build websites.<br className="hidden md:block" />
+            We build the system that makes
+          </span>
+          <span className={`block relative transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.5s', color: '#C9A84C' }}>
+            customers find and choose you.
             <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
               <path
                 d="M2 8 C40 2, 80 12, 120 6 S180 2, 198 8"
@@ -68,13 +64,11 @@ const Hero = () => {
           </span>
         </h1>
 
-        {/* Subheadline */}
-        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-[620px] mx-auto mt-4 sm:mt-8 leading-[1.75] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        {/* Subheadline - Improved readability */}
+        <p className={`font-body text-base sm:text-lg text-agency-text-secondary max-w-xl mx-auto mt-4 sm:mt-8 leading-[1.75] transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.7s' }}
         >
-          Complete online presence for local businesses with website,<br className="hidden sm:block" />
-          Google ranking, WhatsApp automation, and lead systems<br className="hidden sm:block" />
-          — set up fast, grown consistently.
+          Every project includes strategy, design, local SEO, Google presence, and automation — not just a pretty page. And we stay with you to grow it consistently.
         </p>
 
         {/* CTAs */}
