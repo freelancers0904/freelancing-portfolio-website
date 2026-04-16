@@ -8,7 +8,7 @@ const Stats = () => {
   const stat3 = useCountUp(100, 2000, '', '%');
 
   const stats = [
-    { ref: stat1.ref, display: `5–${stat1.display}`, label: 'Day Full Setup' },
+    { ref: stat1.ref, display: `5–${stat1.display}`, label: 'Fast Delivery' },
     { ref: stat2.ref, display: stat2.display, label: 'Businesses Launched' },
     { ref: stat3.ref, display: stat3.display, label: 'Done-For-You Goal' },
   ];

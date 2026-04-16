@@ -2,14 +2,14 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const features = [
   {
-    title: 'AI Chatbot — 24/7 Lead Capture',
-    body: 'Answers questions and collects contact details any time of day. Powered by AI, personalised to your business.',
+    title: 'Never Miss a Customer Enquiry',
+    body: 'Your website captures enquiries anytime and responds instantly — even when you are busy or offline.',
     gold: true,
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M14 9l-2-2-2 2"/></svg>,
   },
   {
-    title: 'Google Business Management',
-    body: 'Optimised profile, weekly Google posts, photo updates, and a review generation strategy that builds your local ranking over time.',
+    title: 'Get Found on Google',
+    body: 'Your business shows up when people search for your services nearby — bringing you more customers without you lifting a finger.',
     gold: false,
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>,
   },
@@ -20,8 +20,8 @@ const features = [
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>,
   },
   {
-    title: 'Zero Manual Follow-Up',
-    body: 'Automated workflows route leads, send reminders, and keep your pipeline moving with zero manual effort from you.',
+    title: 'Automatic Customer Follow-Ups',
+    body: 'Interested customers get timely responses so you don’t lose potential business.',
     gold: true,
     icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
   },
@@ -86,7 +86,7 @@ const AIFeatures = () => {
           border: '1px solid rgba(149,124,61,0.25)',
         }}>
           <p className="font-display font-semibold text-base sm:text-xl text-agency-text">
-            Most of our clients start receiving enquiries within 48–72 hours of going live.
+           Many businesses start seeing enquiries within the first few days — depending on demand and location.
           </p>
         </div>
       </div>

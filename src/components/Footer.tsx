@@ -23,8 +23,21 @@ const Footer = () => {
           {/* Logo */}
           <div className="sm:col-span-1">
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }} />
+              {/* <span className="w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }} /> */}
               {/* Agency name will be added here once finalized */}
+                <div className="relative max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+          {/* Logo */}
+          <a href="#" className="flex flex-shrink-0 items-center gap-3" aria-label="Go to top">
+            <span className="relative w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }}>
+              <span className="absolute inset-0 rounded-[3px] animate-pulse-dot" style={{ background: '#C9A84C' }} />
+            </span>
+            <div className="flex flex-col leading-none">
+              <span className="text-[11px] tracking-[0.3em] uppercase text-agency-text-secondary">Palak + Mahesh</span>
+              <span className="font-semibold text-sm text-agency-text">Growth by design</span>
+                  </div>
+                  </a>
+              </div>
+              
             </div>
             <p className="font-body text-xs md:text-[13px] text-agency-text-muted mt-2">We build systems. Not just websites.</p>
           </div>

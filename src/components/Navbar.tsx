@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
 
 const navLinks = [
+  { label: 'Solutions', href: '#solutions' },
   { label: 'Work', href: '#portfolio' },
-  { label: 'Services', href: '#services' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Process', href: '#process' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -74,15 +75,18 @@ const Navbar = () => {
       >
         <div className="relative max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex flex-shrink-0 items-center gap-2.5" aria-label="Go to top">
+          <a href="#" className="flex flex-shrink-0 items-center gap-3" aria-label="Go to top">
             <span className="relative w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }}>
               <span className="absolute inset-0 rounded-[3px] animate-pulse-dot" style={{ background: '#C9A84C' }} />
             </span>
-            {/* Agency name will be added here once finalized */}
+            <div className="flex flex-col leading-none">
+              <span className="text-[11px] tracking-[0.3em] uppercase text-agency-text-secondary">Palak + Mahesh</span>
+              <span className="font-semibold text-sm text-agency-text">Growth by design</span>
+            </div>
           </a>
 
           {/* Center nav */}
-          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-8 md:flex">
+          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-10 md:flex">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -173,17 +177,17 @@ const Navbar = () => {
       {/* Mobile menu */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-8"
+          className="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-5 px-6 py-16 text-center"
           style={{
-            background: isLight ? 'rgba(245,242,238,0.97)' : 'rgba(0,16,32,0.97)',
-            backdropFilter: 'blur(20px)',
+            background: isLight ? 'rgba(245,242,238,0.98)' : 'rgba(0,16,32,0.98)',
+            backdropFilter: 'blur(22px)',
           }}
         >
           {navLinks.map((link, i) => (
             <button
               key={link.href}
               onClick={() => handleClick(link.href)}
-              className="font-display font-semibold text-3xl text-agency-text animate-fade-slide-up"
+              className="font-display font-semibold text-3xl text-agency-text animate-fade-slide-up w-full max-w-[88vw] leading-tight"
               style={{ animationDelay: `${i * 0.08}s` }}
             >
               {link.label}

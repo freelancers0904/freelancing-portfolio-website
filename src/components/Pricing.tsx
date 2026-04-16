@@ -5,44 +5,37 @@ import WhatsAppSelector from './WhatsAppSelector';
 const plans = [
   {
     price: '₹8,000 – ₹12,000',
-    name: 'Starter',
-    subtitle: 'Basic Online Presence',
-    forText: 'For businesses that need to get online quickly',
+    name: 'Launch',
+    subtitle: 'Get your business online quickly',
+    forText: 'For businesses that want a clean website fast',
     features: [
-      'Up to 5-page mobile-responsive website',
-      'WhatsApp & Call CTA integration',
-      'Basic contact form',
-      'Clean, fast-loading design',
-      'Basic on-page SEO setup',
-      'Google Business Profile setup',
-      'Delivered in 3–5 days',
+      'Mobile-friendly website (3–5 pages)',
+      'Clean design + fast loading',
+      'Contact form + WhatsApp button',
+      'Basic Google Business setup',
+      'Basic SEO setup',
     ],
-    outcome: 'Get your business online so customers can easily find and contact you',
+    outcome: 'Customers can find you and contact you easily',
     cta: 'Get Started →',
     ctaStyle: 'outline' as const,
     elevated: false,
   },
   {
     price: '₹18,000 – ₹25,000',
-    name: 'Growth',
-    subtitle: 'Lead Generation System',
-    forText: 'For businesses ready to increase enquiries and customers',
+    name: 'Grow',
+    subtitle: 'Built to generate enquiries consistently',
+    forText: 'For businesses ready to get more enquiries',
     features: [
-      'High-conversion website (offers, testimonials, strong CTA)',
-      'Smart lead capture form',
-      'WhatsApp automation + AI chatbot',
-      'Complete Google Business Profile optimization',
-      '20–30 real photos + Google Maps visibility improvement',
-      'Advanced on-page SEO + Local SEO setup',
-      'Weekly Google posts (for 1 month)',
-      'Review generation system (scripts + guidance)',
-      'Offer setup (discounts / trial campaigns)',
-      'Basic performance tracking (calls, views, messages)',
-      '1 month growth support',
-      'Delivered in 5-7 days (setup phase)',
-      'Free domain registration (1 year)',
+      'Everything in Launch',
+      'High-conversion website structure',
+      'Google visibility improvement',
+      'Smart enquiry capture system',
+      'WhatsApp auto-response setup',
+      'Review & trust-building setup',
+      'Offer / funnel structure (basic)',
+      'Performance tracking setup',
     ],
-    outcome: 'Get more calls, enquiries, and walk-ins from Google',
+    outcome: 'More enquiries, more calls, more conversions',
     cta: 'Start Growing →',
     ctaStyle: 'filled' as const,
     elevated: true,
@@ -50,27 +43,20 @@ const plans = [
   },
   {
     price: '₹35,000 – ₹50,000+',
-    name: 'Scale',
-    subtitle: '3 Month Growth & Automation System',
-    forText: 'For businesses that want consistent growth and local dominance',
+    name: 'Dominate',
+    subtitle: 'For businesses serious about growth',
+    forText: 'For businesses that want stronger local visibility',
     features: [
-      'Advanced high-conversion website with full funnel setup',
-      'Complete Google Business Profile optimization & management',
-      'Advanced SEO strategy (on-page + local SEO)',
-      'Weekly Google posts (for 3 months)',
-      'Aggressive review growth strategy',
-      'Monthly offer campaigns',
-      'WhatsApp automation + smart follow-up system',
-      'Lead tracking system (basic CRM flow)',
-      'AI chatbot (advanced flow)',
-      'Monthly performance reports',
-      'Continuous optimization for better ranking & conversion',
-      '3 months priority support',
-      'Delivered in 5–7 days (setup phase)',
-      'Free domain registration (3 years)',
+      'Everything in Grow',
+      'Advanced website + funnel setup',
+      'Complete automation system',
+      'Lead tracking + follow-up system',
+      'Advanced Google optimization',
+      'Monthly improvement strategy',
+      'Performance insights & reporting',
     ],
-    outcome: 'Build a system that consistently brings new customers every month',
-    cta: "Let's Build This →",
+    outcome: 'Consistent flow of customers without manual effort',
+    cta: "Let’s Build This →",
     ctaStyle: 'outline' as const,
     elevated: false,
   },
@@ -93,11 +79,11 @@ const Pricing = () => {
             One system.<br /><span style={{ color: '#C9A84C' }}>Three ways to grow.</span>
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5">
-            Every plan includes strategy, design, local SEO, Google setup, and delivery. Pick the level of growth you want.
+            Choose what fits your current stage — upgrade anytime as you grow.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 mt-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6 mt-16 items-start">
           {plans.map((plan, i) => (
             <div key={i} className={`scroll-hidden relative p-6 lg:p-8 rounded-[20px] flex flex-col ${plan.elevated ? 'md:-translate-y-4' : ''}`} style={{
               background: plan.elevated ? 'rgba(201,168,76,0.07)' : `hsla(var(--card-bg), var(--card-bg-alpha))`,
@@ -148,7 +134,7 @@ const Pricing = () => {
               </div>
 
               <button onClick={() => setWhatsappOpen(true)}
-                className="block w-full text-center mt-6 rounded-[10px] font-body font-medium text-sm transition-all duration-300 hover:-translate-y-0.5"
+                className="block w-full text-center mt-6 rounded-[14px] font-body font-medium text-sm transition-all duration-300 hover:-translate-y-0.5"
                 style={
                   plan.ctaStyle === 'filled'
                     ? { background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 30px rgba(201,168,76,0.4)', height: 48, lineHeight: '48px', padding: 0, fontWeight: 600 }
@@ -161,9 +147,14 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Urgency line */}
+        {/* Trust line */}
         <p className="scroll-hidden text-center mt-8 font-body text-sm text-agency-text-secondary italic">
-          ⚡ Limited slots available each month — we only take on a few projects to ensure quality.
+          Many businesses start receiving enquiries within the first few days while we optimize your presence for local search.
+        </p>
+
+        {/* Small line */}
+        <p className="scroll-hidden text-center mt-4 font-body text-xs text-agency-text-muted">
+          Every plan includes launch support, setup guidance, and clear next steps so you feel confident from day one.
         </p>
 
         {/* Mid-page CTA */}
@@ -172,12 +163,12 @@ const Pricing = () => {
           border: '1px solid rgba(201,168,76,0.15)',
         }}>
           <h3 className="font-display font-semibold text-[22px] text-agency-text">Not sure which plan fits your business?</h3>
-          <p className="font-body text-[15px] text-agency-text-secondary mt-2">Chat with us — we'll help you pick the right starting point. No sales pressure.</p>
+          <p className="font-body text-[15px] text-agency-text-secondary mt-2">Let’s talk — we’ll guide you based on your goals. No pressure.</p>
           <button onClick={() => setWhatsappOpen(true)}
             className="inline-block mt-5 px-7 h-12 leading-[48px] rounded-[10px] font-body font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5"
             style={{ background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020' }}
           >
-            Chat on WhatsApp — It's Free →
+            Chat on WhatsApp - It's Free→ 
           </button>
         </div>
 

@@ -33,16 +33,21 @@ const CustomCursor = () => {
 
     let raf: number;
     const lerp = () => {
-      pos.current.x += (target.current.x - pos.current.x) * 0.15;
-      pos.current.y += (target.current.y - pos.current.y) * 0.15;
+      const ease = 0.26;
+      pos.current.x += (target.current.x - pos.current.x) * ease;
+      pos.current.y += (target.current.y - pos.current.y) * ease;
+      if (Math.abs(target.current.x - pos.current.x) < 0.5) pos.current.x = target.current.x;
+      if (Math.abs(target.current.y - pos.current.y) < 0.5) pos.current.y = target.current.y;
 
-      const size = isHovering.current ? 36 : 10;
-      const bg = isHovering.current ? 'rgba(201,168,76,0.15)' : 'transparent';
+      const size = isHovering.current ? 34 : 10;
+      const bg = isHovering.current ? 'rgba(201,168,76,0.18)' : 'transparent';
+      const border = isHovering.current ? 'rgba(201,168,76,0.9)' : '#C9A84C';
 
-      cursor.style.transform = `translate(${pos.current.x - size / 2}px, ${pos.current.y - size / 2}px)`;
+      cursor.style.transform = `translate3d(${pos.current.x - size / 2}px, ${pos.current.y - size / 2}px, 0)`;
       cursor.style.width = `${size}px`;
       cursor.style.height = `${size}px`;
       cursor.style.backgroundColor = bg;
+      cursor.style.borderColor = border;
 
       raf = requestAnimationFrame(lerp);
     };
@@ -63,7 +68,7 @@ const CustomCursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full transition-[width,height,background-color] duration-200 ease-out hidden md:block"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full transition-[width,height,background-color,border-color] duration-150 ease-out hidden md:block"
       style={{ width: 10, height: 10, border: '1.5px solid #C9A84C' }}
     />
   );

@@ -113,7 +113,7 @@ const WhyUs = () => {
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 lg:gap-16 items-center">
         <div>
           <span className="scroll-hidden font-body font-semibold text-xs tracking-[2px] uppercase" style={{ color: '#C9A84C' }}>WHY US?</span>
-          <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] lg:text-[52px] leading-[1.2] tracking-[-0.02em] mt-4" style={{ wordSpacing: '0.04em' }}>
+          <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] lg:text-[52px] leading-[1.2] tracking-[-0.02em] mt-4" style={{ wordSpacing: '0.10em' }}>
             <span className="text-agency-text">Other agencies build websites.</span><br />
             <span className="text-agency-text">We build your entire</span><br />
             <span className="relative" style={{ color: '#C9A84C' }}>
@@ -123,7 +123,7 @@ const WhyUs = () => {
               </svg>
             </span>
           </h2>
-          <p className="scroll-hidden font-body text-base text-agency-text-secondary leading-[1.8] mt-6 max-w-[460px] text-justify px-2">
+          <p className="scroll-hidden font-body text-base text-agency-text-secondary leading-[1.8] mt-6 max-w-[460px] mx-auto text-justify px-2">
             Most web agencies hand you a website and disappear. We are a focused 2-person team — Mahesh and Palak — that builds your complete digital presence and stays to grow it. Google Maps ranking, review systems, WhatsApp funnels, a converting website. No project managers. No delays. No excuses.
           </p>
           <div className="scroll-hidden mt-9 space-y-4">

@@ -80,10 +80,10 @@ const Contact = () => {
         <div className="text-center">
           <span className="scroll-hidden section-label">CONTACT</span>
           <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] text-agency-text" style={{ wordSpacing: '0.04em' }}>
-            Let's build something great.
+            Start with a website that works for your business.
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[500px] mx-auto mt-5">
-            Tell us about your business. We reply within 24 hours.
+            Share your goals and we’ll recommend the fastest way to launch a professional website, attract enquiries, and build trust online.
           </p>
         </div>
 
