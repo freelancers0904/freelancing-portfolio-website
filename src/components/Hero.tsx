@@ -46,7 +46,7 @@ const Hero = () => {
           style={{ transitionDelay: '0.3s' }}
         />
         <h1 className="font-display font-bold text-[26px] sm:text-[40px] md:text-[72px] leading-[1.12] tracking-[-0.02em]" style={{ wordSpacing: '0.08em', maxWidth: '95vw', margin: '0 auto' }}>
-          {['Turn Your Business Into A'].map((line, i) => (
+          {['Turn Your Business Into'].map((line, i) => (
             <span key={i} className={`block text-agency-text transition-all duration-700 ${i < 2 ? 'sm:whitespace-nowrap' : ''} ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
             >
@@ -56,7 +56,7 @@ const Hero = () => {
           <span className={`block relative inline-block transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             style={{ transitionDelay: '0.6s', color: '#C9A84C' }}
           >
-             Customer Magnet.
+             A Customer Magnet.
             <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
               <path
                 d="M2 8 C40 2, 80 12, 120 6 S180 2, 198 8"

@@ -21,8 +21,9 @@ const FinalCTA = () => {
 
       <div ref={sectionRef} className="relative max-w-4xl mx-auto px-6 text-center">
         <span className="scroll-hidden section-label">READY TO GROW?</span>
-        <h2 className="scroll-hidden font-display font-bold text-[22px] sm:text-[36px] md:text-[56px] leading-[1.25] tracking-[-0.02em] mt-8 max-w-[900px] mx-auto text-center px-2" style={{ wordSpacing: '0.10em' }}>
-          <span className="block text-agency-text whitespace-normal sm:whitespace-nowrap">Your competitors are already online.</span>
+        <h2 className="scroll-hidden font-display font-bold text-[22px] sm:text-[36px] md:text-[56px] leading-[1.25] tracking-[-0.00em] mt-8 max-w-[900px] text-center" style={{ wordSpacing: '0.04em' }}>
+          <span className="block text-agency-text whitespace-normal sm:whitespace-nowrap">Your competitors are already</span>
+          <span className="block text-agency-text mt-3 whitespace-normal sm:whitespace-nowrap" style={{ color: '#C9A84C' }}>online.</span>
           <span className="block text-agency-text mt-3 whitespace-normal sm:whitespace-nowrap">Let's make sure customers</span>
           <span className="block text-agency-text mt-3 whitespace-normal sm:whitespace-nowrap" style={{ color: '#C9A84C' }}>find you first.</span>
         </h2>
