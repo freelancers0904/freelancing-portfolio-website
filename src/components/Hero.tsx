@@ -1,12 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
+import MagneticButton from './MagneticButton';
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const [whatsappOpen, setWhatsappOpen] = useState(false);
+  const glowRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100);
   }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(hover: none)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const handler = (e: MouseEvent) => {
+      const el = glowRef.current;
+      if (!el) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 24;
+      const y = (e.clientY / window.innerHeight - 0.5) * 24;
+      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    };
+    window.addEventListener('mousemove', handler);
+    return () => window.removeEventListener('mousemove', handler);
+  }, []);
+
 
   return (
     <section className="hero-section relative flex min-h-[calc(100svh-68px)] items-start justify-center overflow-hidden md:min-h-screen md:items-center" style={{ 
@@ -15,8 +33,9 @@ const Hero = () => {
       backgroundSize: '24px 24px'
     }}>
       {/* Gold glow */}
-      <div className="absolute inset-0 pointer-events-none hero-gold-glow" style={{
-        background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)'
+      <div ref={glowRef} className="absolute inset-0 pointer-events-none hero-gold-glow will-change-transform" style={{
+        background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)',
+        transition: 'transform 0.6s cubic-bezier(0.22,1,0.36,1)',
       }} />
       {/* Navy glow bottom-right */}
       <div className="absolute inset-0 pointer-events-none hero-navy-glow" style={{
