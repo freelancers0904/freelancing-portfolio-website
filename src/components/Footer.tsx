@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
-import vichaarLogo from '@/assets/vichaar-logo.jpeg';
-import vichaarLogoLight from '@/assets/vichaar-logo-light.png';
+import vichaarLogo from '@/assets/vichaar-logo-transparent.png';
+import vichaarLogoLight from '@/assets/vichaar-logo-light-mode.png';
 
 const navLinks = [
   { label: 'Work', href: '#portfolio' },
@@ -37,7 +37,7 @@ const Footer = () => {
               <img
                 src={isLight ? vichaarLogoLight : vichaarLogo}
                 alt="Vichaar Co"
-                className="h-11 md:h-12 w-auto block"
+                className="h-13 md:h-14 w-auto block"
                 style={{ background: 'transparent' }}
               />
             </a>
