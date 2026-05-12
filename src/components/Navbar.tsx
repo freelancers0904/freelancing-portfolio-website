@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
+import vichaarLogo from '@/assets/vichaar-logo.jpeg';
 
 const navLinks = [
   { label: 'Solutions', href: '#solutions' },
@@ -75,14 +76,17 @@ const Navbar = () => {
       >
         <div className="relative max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex flex-shrink-0 items-center gap-3" aria-label="Go to top">
-            <span className="relative w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }}>
-              <span className="absolute inset-0 rounded-[3px] animate-pulse-dot" style={{ background: '#C9A84C' }} />
+          <a href="#" className="flex flex-shrink-0 items-center" aria-label="Vichaar Co — Home">
+            <span
+              className="inline-flex items-center justify-center rounded-xl px-2.5 py-1.5"
+              style={{
+                background: '#000',
+                border: '1px solid rgba(201,168,76,0.35)',
+                boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
+              }}
+            >
+              <img src={vichaarLogo} alt="Vichaar Co" className="h-7 md:h-8 w-auto block" />
             </span>
-            <div className="flex flex-col leading-none">
-              <span className="text-[11px] tracking-[0.3em] uppercase text-agency-text-secondary">Palak + Mahesh</span>
-              <span className="font-semibold text-sm text-agency-text">Growth by design</span>
-            </div>
           </a>
 
           {/* Center nav */}

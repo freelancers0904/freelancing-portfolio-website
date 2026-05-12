@@ -2,32 +2,35 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
 
-const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: string }) => (
-  <div className="animate-float rounded-xl overflow-hidden" style={{
-    background: 'hsl(var(--bg-primary))',
-    border: '1px solid rgba(149,124,61,0.2)',
-    boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
-  }}>
-    <div className="h-10 flex items-center px-4 gap-2" style={{ background: 'hsl(var(--bg-secondary))' }}>
-      <span className="w-3 h-3 rounded-full" style={{ background: '#FF5F56' }} />
-      <span className="w-3 h-3 rounded-full" style={{ background: '#FFBD2E' }} />
-      <span className="w-3 h-3 rounded-full" style={{ background: '#27C93F' }} />
-      <div className="ml-3 px-3 py-1 rounded-md w-[60%] font-body text-xs text-agency-text-secondary truncate" style={{ background: 'hsl(var(--bg-primary))' }}>
-        {url}
+const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: string }) => {
+  // Many demo sites (vercel.app, lovable.app) block iframe embedding via X-Frame-Options.
+  // Use a live screenshot service so the preview actually renders.
+  const screenshotSrc = `https://image.thum.io/get/width/1200/crop/800/noanimate/${src}`;
+  return (
+    <a href={src} target="_blank" rel="noopener noreferrer" className="block animate-float rounded-xl overflow-hidden group" style={{
+      background: 'hsl(var(--bg-primary))',
+      border: '1px solid rgba(149,124,61,0.2)',
+      boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
+    }}>
+      <div className="h-10 flex items-center px-4 gap-2" style={{ background: 'hsl(var(--bg-secondary))' }}>
+        <span className="w-3 h-3 rounded-full" style={{ background: '#FF5F56' }} />
+        <span className="w-3 h-3 rounded-full" style={{ background: '#FFBD2E' }} />
+        <span className="w-3 h-3 rounded-full" style={{ background: '#27C93F' }} />
+        <div className="ml-3 px-3 py-1 rounded-md w-[60%] font-body text-xs text-agency-text-secondary truncate" style={{ background: 'hsl(var(--bg-primary))' }}>
+          {url}
+        </div>
       </div>
-    </div>
-    <div style={{ width: '100%', height: 380, overflow: 'hidden' }}>
-      <iframe
-        src={src}
-        width="133%"
-        height="507"
-        style={{ border: 'none', transform: 'scale(0.75)', transformOrigin: 'top left' }}
-        loading="lazy"
-        title={title}
-      />
-    </div>
-  </div>
-);
+      <div style={{ width: '100%', height: 380, overflow: 'hidden', background: 'hsl(var(--bg-secondary))' }}>
+        <img
+          src={screenshotSrc}
+          alt={title}
+          loading="lazy"
+          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+        />
+      </div>
+    </a>
+  );
+};
 
 type Project = {
   tag: string;
