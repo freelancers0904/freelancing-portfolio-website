@@ -27,7 +27,6 @@ const plans = [
     subtitle: 'Built to generate enquiries consistently',
     forText: 'For businesses ready to get more enquiries',
     features: [
-      'Everything in Launch',
       'High-conversion website structure',
       'Google visibility improvement',
       'Smart enquiry capture system',
@@ -48,7 +47,6 @@ const plans = [
     subtitle: 'For businesses serious about growth',
     forText: 'For businesses that want stronger local visibility',
     features: [
-      'Everything in Grow',
       'Advanced website + funnel setup',
       'Complete automation system',
       'Lead tracking + follow-up system',
