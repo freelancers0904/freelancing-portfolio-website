@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
 import vichaarLogo from '@/assets/vichaar-logo.jpeg';
+import vichaarLogoLight from '@/assets/vichaar-logo-light.png';
 
 const navLinks = [
   { label: 'Solutions', href: '#solutions' },
