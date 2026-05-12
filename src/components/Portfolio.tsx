@@ -185,15 +185,18 @@ const Portfolio = () => {
       <div ref={sectionRef} className="max-w-[1100px] mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">OUR WORK</span>
-          <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] text-agency-text" style={{ wordSpacing: '0.04em' }}>
+          <h2 className="scroll-hidden font-display font-bold text-fluid-h2 text-center mt-6 text-agency-text" style={{ wordSpacing: '0.04em' }}>
             Built by us.<br />Ready to inspire you.
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[620px] mx-auto mt-5 leading-[1.8]">
             We build across niches — explore live demo websites by category. Each one is fully functional and shows exactly what your business could look like online.
           </p>
 
-          {/* Category Tabs */}
-          <div className="scroll-hidden flex flex-wrap justify-center gap-2 sm:gap-3 mt-8">
+        </div>
+
+        {/* Sticky Category Tabs */}
+        <div className="portfolio-tabs-sticky">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {categories.map((cat) => {
               const active = activeCategory === cat.id;
               return (
@@ -239,8 +242,9 @@ const Portfolio = () => {
                   }}>
                     {p.tag}
                   </span>
-                  <h3 className="font-display font-bold text-2xl sm:text-3xl md:text-[40px] text-agency-text mt-4">{p.name}</h3>
+                  <h3 className="font-display font-bold text-fluid-h3 text-agency-text mt-4">{p.name}</h3>
                   <p className="font-body text-xs sm:text-sm text-agency-text-secondary mt-1">{p.location}</p>
+                  <ScorePills />
 
                   <div className="flex flex-wrap gap-2 mt-4 sm:mt-5">
                     {p.tags.map((tag) => (
