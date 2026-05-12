@@ -43,7 +43,7 @@ const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: st
           href={src}
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-3 px-3 py-1 rounded-md w-[60%] font-body text-xs text-agency-text-secondary truncate hover:text-agency-text transition-colors"
+          className="ml-3 px-3 py-1 rounded-md flex-1 min-w-0 md:flex-none md:w-[60%] text-left font-body text-xs text-agency-text-secondary truncate hover:text-agency-text transition-colors"
           style={{ background: 'hsl(var(--bg-primary))' }}
         >
           {url}
