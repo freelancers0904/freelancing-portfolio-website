@@ -1,15 +1,41 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { useState } from 'react';
+import { useRef, useState, MouseEvent } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
 
 const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const onMove = (e: MouseEvent<HTMLDivElement>) => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const rect = el.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width - 0.5;
+    const py = (e.clientY - rect.top) / rect.height - 0.5;
+    const ry = px * 6;
+    const rx = -py * 6;
+    el.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+  };
+  const onLeave = () => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+  };
+
   return (
-    <div className="animate-float rounded-xl overflow-hidden group" style={{
-      background: 'hsl(var(--bg-primary))',
-      border: '1px solid rgba(149,124,61,0.2)',
-      boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
-    }}>
-      <div className="h-10 flex items-center px-4 gap-2" style={{ background: 'hsl(var(--bg-secondary))' }}>
+    <div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      className="animate-float tilt-frame rounded-xl overflow-hidden group relative"
+      style={{
+        background: 'hsl(var(--bg-primary))',
+        border: '1px solid rgba(149,124,61,0.2)',
+        boxShadow: '0 30px 60px rgba(0,0,0,0.5)',
+      }}
+    >
+      <div className="h-10 flex items-center px-4 gap-2 relative" style={{ background: 'hsl(var(--bg-secondary))' }}>
         <span className="w-3 h-3 rounded-full" style={{ background: '#FF5F56' }} />
         <span className="w-3 h-3 rounded-full" style={{ background: '#FFBD2E' }} />
         <span className="w-3 h-3 rounded-full" style={{ background: '#27C93F' }} />
@@ -22,6 +48,13 @@ const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: st
         >
           {url}
         </a>
+        <div className="ml-auto flex items-center gap-1.5 px-2 py-1 rounded-full" style={{
+          background: 'rgba(39,201,63,0.12)',
+          border: '1px solid rgba(39,201,63,0.35)',
+        }}>
+          <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ background: '#27C93F' }} />
+          <span className="font-body font-semibold text-[10px] tracking-[0.1em]" style={{ color: '#4ade80' }}>LIVE</span>
+        </div>
       </div>
       <div className="relative" style={{ width: '100%', height: 420, overflow: 'hidden', background: 'hsl(var(--bg-secondary))' }}>
         <iframe
@@ -42,6 +75,15 @@ const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: st
     </div>
   );
 };
+
+const ScorePills = () => (
+  <div className="flex flex-wrap gap-1.5 mt-3">
+    <span className="score-pill"><span>98</span> Performance</span>
+    <span className="score-pill"><span>100</span> SEO</span>
+    <span className="score-pill"><span>100</span> Accessibility</span>
+  </div>
+);
+
 
 type Project = {
   tag: string;
