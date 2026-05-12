@@ -145,8 +145,36 @@
   h5,
   h6 {
     font-family: "Clash Display", sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    letter-spacing: -0.02em;
   }
 }
+
+@layer utilities {
+  .text-fluid-h1 {
+    font-size: clamp(28px, 6.4vw, 76px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+  .text-fluid-h2 {
+    font-size: clamp(28px, 4.4vw, 56px);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+  .text-fluid-h3 {
+    font-size: clamp(22px, 2.6vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+  .text-fluid-body {
+    font-size: clamp(14px, 1.1vw, 17px);
+    line-height: 1.7;
+  }
+  .nums-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
 
 /* Grain texture overlay */
 body::before {
