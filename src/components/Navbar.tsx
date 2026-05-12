@@ -81,7 +81,7 @@ const Navbar = () => {
             <img
               src={isLight ? vichaarLogoLight : vichaarLogo}
               alt="Vichaar Co"
-              className="h-10 md:h-12 w-auto block"
+              className="h-12 md:h-14 w-auto block"
               style={{ background: 'transparent' }}
             />
           </a>
