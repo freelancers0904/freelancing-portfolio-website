@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
-import vichaarLogo from '@/assets/vichaar-logo.jpeg';
-import vichaarLogoLight from '@/assets/vichaar-logo-light.png';
+import vichaarLogo from '@/assets/vichaar-logo-transparent.png';
+import vichaarLogoLight from '@/assets/vichaar-logo-light-mode.png';
 
 const navLinks = [
   { label: 'Work', href: '#portfolio' },
