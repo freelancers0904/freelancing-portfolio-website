@@ -1,28 +1,32 @@
+## Goal
+Make the Work section switch cleanly between Interior Design, Restaurant, and Gym so the embedded websites stay visible every time the user changes tabs.
 
+## Root cause
+The portfolio cards are rendered with the `scroll-hidden` class, but the section’s scroll animation hook only reveals elements once when the section first enters view. After switching categories, the newly mounted cards remain hidden (`opacity: 0`), so the iframe area looks blank even though the content exists.
 
-# Pricing Section Update
+## What I will change
 
-## What changes
-Update `src/components/Pricing.tsx` with new plan data, subtitles, outcome sections, and a "How Growth Works" info block below pricing.
+### 1. Fix tab content visibility in `src/components/Portfolio.tsx`
+- Remove the one-time scroll-reveal behavior from the category-dependent project cards.
+- Keep the section heading and tabs using the existing animation behavior.
+- Ensure switching categories does not remount hidden content in an invisible state.
 
-## Plan details
+### 2. Stabilize the iframe preview area
+- Keep real iframes as requested.
+- Adjust the iframe wrapper so each category swap renders a visible, consistent preview area.
+- Preserve the existing portfolio layout and overall design direction.
 
-### 1. Update plan data array
-Replace the three plans with the new content:
-- **Starter – Basic Online Presence**: ₹8,000 – ₹12,000, 7 features, outcome text
-- **Growth – Lead Generation System** (MOST POPULAR): ₹18,000 – ₹25,000, 17 features, outcome text
-- **Scale – 3 Month Growth & Automation System**: ₹35,000 – ₹50,000+, 16 features, outcome text
+### 3. Verify category switching behavior
+- Confirm this sequence works reliably:
+  - Interior loads on first view
+  - Restaurant becomes visible when clicked
+  - Gym becomes visible when clicked
+  - Switching back to Interior still shows the websites correctly
 
-Each plan object gets a new `outcome` field for the result statement.
+## Technical details
+- File to update: `src/components/Portfolio.tsx`
+- Likely no cross-file refactor needed unless a tiny animation helper adjustment is cleaner.
+- No design rewrite, no content restructuring, no fallback screenshots.
 
-### 2. Update card rendering
-- Show plan name as "Starter – Basic Online Presence" format (subtitle after dash)
-- Add an outcome block below features with a subtle highlight background and a target/rocket icon
-- CTA buttons: "Get Started →", "Start Growing →", "Let's Build This →"
-
-### 3. Add "How Growth Works" section
-Below the mid-page CTA, add a new info block with an icon and the text about setup timeline and gradual growth (2–4 weeks). Styled as a subtle bordered card matching the existing design language.
-
-### 4. Files changed
-- `src/components/Pricing.tsx` — only file modified
-
+## Validation
+After implementation, I will verify that the Work section no longer shows blank cards when changing categories and that iframe previews remain visible across repeated tab switches.
