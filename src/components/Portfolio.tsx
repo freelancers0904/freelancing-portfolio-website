@@ -193,7 +193,7 @@ const Portfolio = () => {
         {projects.map((p, i) => {
           const reversed = i % 2 === 1;
           return (
-            <div key={`${activeCategory}-${i}`} className="scroll-hidden mt-10 rounded-3xl p-6 md:p-8 lg:p-12 overflow-hidden" style={{
+            <div key={`${activeCategory}-${i}`} className="mt-10 rounded-3xl p-6 md:p-8 lg:p-12 overflow-hidden animate-fade-slide-up" style={{
               background: `hsla(var(--card-bg), var(--card-bg-alpha))`,
               border: '1px solid rgba(149,124,61,0.2)',
             }}>
