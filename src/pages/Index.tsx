@@ -15,11 +15,13 @@ import Footer from '@/components/Footer';
 import CustomCursor from '@/components/CustomCursor';
 import WhatsAppFAB from '@/components/WhatsAppFAB';
 import ScrollToTop from '@/components/ScrollToTop';
+import ScrollProgress from '@/components/ScrollProgress';
 
 const Index = () => {
   return (
     <>
       <CustomCursor />
+      <ScrollProgress />
       <Navbar />
       <Hero />
       {/* <WhoThisIsFor /> */}
