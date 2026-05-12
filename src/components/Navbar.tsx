@@ -77,12 +77,23 @@ const Navbar = () => {
       >
         <div className="relative max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex flex-shrink-0 items-center" aria-label="Vichaar Co — Home">
+          <a href="#" className="relative flex flex-shrink-0 items-center" aria-label="Vichaar Co — Home">
             <img
-              src={isLight ? vichaarLogoLight : vichaarLogo}
+              src={vichaarLogo}
               alt="Vichaar Co"
-              className="h-14 md:h-16 w-auto block"
-              style={{ background: 'transparent' }}
+              decoding="sync"
+              fetchPriority="high"
+              className="h-14 md:h-16 w-auto block transition-opacity duration-75"
+              style={{ opacity: isLight ? 0 : 1 }}
+            />
+            <img
+              src={vichaarLogoLight}
+              alt=""
+              aria-hidden="true"
+              decoding="sync"
+              fetchPriority="high"
+              className="h-14 md:h-16 w-auto block absolute inset-0 transition-opacity duration-75"
+              style={{ opacity: isLight ? 1 : 0 }}
             />
           </a>
 

@@ -33,12 +33,21 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {/* Logo */}
           <div className="sm:col-span-1 text-center sm:text-left">
-            <a href="#" className="inline-flex items-center justify-center sm:justify-start" aria-label="Vichaar Co — Home">
+            <a href="#" className="relative inline-flex items-center justify-center sm:justify-start" aria-label="Vichaar Co — Home">
               <img
-                src={isLight ? vichaarLogoLight : vichaarLogo}
+                src={vichaarLogo}
                 alt="Vichaar Co"
-                className="h-14 md:h-16 w-auto block"
-                style={{ background: 'transparent' }}
+                decoding="sync"
+                className="h-14 md:h-16 w-auto block transition-opacity duration-75"
+                style={{ opacity: isLight ? 0 : 1 }}
+              />
+              <img
+                src={vichaarLogoLight}
+                alt=""
+                aria-hidden="true"
+                decoding="sync"
+                className="h-14 md:h-16 w-auto block absolute inset-0 transition-opacity duration-75"
+                style={{ opacity: isLight ? 1 : 0 }}
               />
             </a>
             <p className="font-body text-xs md:text-[13px] text-agency-text-muted mt-3">We build systems. Not just websites.</p>
