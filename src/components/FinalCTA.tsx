@@ -1,6 +1,7 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
+import MagneticButton from './MagneticButton';
 
 const FinalCTA = () => {
   const sectionRef = useScrollAnimation();
@@ -21,20 +22,20 @@ const FinalCTA = () => {
 
       <div ref={sectionRef} className="relative max-w-4xl mx-auto px-6 text-center">
         <span className="scroll-hidden section-label">READY TO GROW?</span>
-        <h2 className="scroll-hidden font-display font-bold text-[22px] sm:text-[36px] md:text-[56px] leading-[1.25] tracking-[-0.00em] mt-8 max-w-[900px] text-center" style={{ wordSpacing: '0.04em' }}>
+        <h2 className="scroll-hidden font-display font-bold text-fluid-h2 mt-8 max-w-[900px] text-center mx-auto" style={{ wordSpacing: '0.04em' }}>
           <span className="block text-agency-text whitespace-normal sm:whitespace-nowrap">Your competitors are already</span>
-          <span className="block text-agency-text mt-3 whitespace-normal sm:whitespace-nowrap" style={{ color: '#C9A84C' }}>online.</span>
+          <span className="block mt-3 whitespace-normal sm:whitespace-nowrap" style={{ color: '#C9A84C' }}>online.</span>
           <span className="block text-agency-text mt-3 whitespace-normal sm:whitespace-nowrap">Let's make sure customers</span>
-          <span className="block text-agency-text mt-3 whitespace-normal sm:whitespace-nowrap" style={{ color: '#C9A84C' }}>find you first.</span>
+          <span className="block mt-3 whitespace-normal sm:whitespace-nowrap" style={{ color: '#C9A84C' }}>find you first.</span>
         </h2>
         <p className="scroll-hidden font-body text-sm sm:text-lg text-agency-text-secondary max-w-[480px] mx-auto mt-5 leading-[1.7]">
           Let's build something that actually works for your business — set up in 5–7 days, grown every month after.
         </p>
 
         <div className="scroll-hidden flex flex-col sm:flex-row items-center justify-center gap-3 mt-10 w-full px-2">
-          <button
+          <MagneticButton
             onClick={() => setWhatsappOpen(true)}
-            className="font-body font-semibold text-[14px] sm:text-base h-11 sm:h-14 px-6 sm:px-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] w-full sm:w-auto"
+            className="font-body font-semibold text-[14px] sm:text-base h-11 sm:h-14 px-6 sm:px-9 rounded-xl flex items-center justify-center w-full sm:w-auto"
             style={{
               background: 'linear-gradient(135deg, #957C3D, #C9A84C)',
               color: '#001020',
@@ -42,7 +43,7 @@ const FinalCTA = () => {
             }}
           >
             Start Your Project →
-          </button>
+          </MagneticButton>
           <button
             onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
             className="font-body font-semibold text-[14px] sm:text-base text-agency-text h-11 sm:h-14 px-6 sm:px-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:bg-[rgba(255,255,255,0.03)] w-full sm:w-auto"

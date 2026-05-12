@@ -1,6 +1,7 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
+import MagneticButton from './MagneticButton';
 
 const plans = [
   {
@@ -75,7 +76,7 @@ const Pricing = () => {
       <div ref={sectionRef} className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="scroll-hidden section-label">PRICING</span>
-          <h2 className="scroll-hidden font-display font-bold text-[28px] sm:text-[36px] md:text-[52px] text-center mt-6 leading-[1.2] tracking-[-0.02em] text-agency-text" style={{ wordSpacing: '0.04em' }}>
+          <h2 className="scroll-hidden font-display font-bold text-fluid-h2 text-center mt-6 text-agency-text" style={{ wordSpacing: '0.04em' }}>
             One system.<br /><span style={{ color: '#C9A84C' }}>Three ways to grow.</span>
           </h2>
           <p className="scroll-hidden font-body text-sm sm:text-base text-agency-text-secondary text-center max-w-[540px] mx-auto mt-5">
@@ -133,16 +134,22 @@ const Pricing = () => {
                 </div>
               </div>
 
-              <button onClick={() => setWhatsappOpen(true)}
-                className="block w-full text-center mt-6 rounded-[14px] font-body font-medium text-sm transition-all duration-300 hover:-translate-y-0.5"
-                style={
-                  plan.ctaStyle === 'filled'
-                    ? { background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 30px rgba(201,168,76,0.4)', height: 48, lineHeight: '48px', padding: 0, fontWeight: 600 }
-                    : { border: '1.5px solid rgba(201,168,76,0.5)', color: '#C9A84C', height: 44, lineHeight: '44px', padding: 0 }
-                }
-              >
-                {plan.cta}
-              </button>
+              {plan.ctaStyle === 'filled' ? (
+                <MagneticButton
+                  onClick={() => setWhatsappOpen(true)}
+                  className="block w-full text-center mt-6 rounded-[14px] font-body text-sm"
+                  style={{ background: 'linear-gradient(135deg, #957C3D, #C9A84C)', color: '#001020', boxShadow: '0 0 30px rgba(201,168,76,0.4)', height: 48, lineHeight: '48px', padding: 0, fontWeight: 600 }}
+                >
+                  {plan.cta}
+                </MagneticButton>
+              ) : (
+                <button onClick={() => setWhatsappOpen(true)}
+                  className="block w-full text-center mt-6 rounded-[14px] font-body font-medium text-sm transition-all duration-300 hover:-translate-y-0.5"
+                  style={{ border: '1.5px solid rgba(201,168,76,0.5)', color: '#C9A84C', height: 44, lineHeight: '44px', padding: 0 }}
+                >
+                  {plan.cta}
+                </button>
+              )}
             </div>
           ))}
         </div>

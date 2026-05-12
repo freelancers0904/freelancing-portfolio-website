@@ -1,12 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
+import MagneticButton from './MagneticButton';
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const [whatsappOpen, setWhatsappOpen] = useState(false);
+  const glowRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setTimeout(() => setLoaded(true), 100);
   }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.matchMedia('(hover: none)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const handler = (e: MouseEvent) => {
+      const el = glowRef.current;
+      if (!el) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 24;
+      const y = (e.clientY / window.innerHeight - 0.5) * 24;
+      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    };
+    window.addEventListener('mousemove', handler);
+    return () => window.removeEventListener('mousemove', handler);
+  }, []);
+
 
   return (
     <section className="hero-section relative flex min-h-[calc(100svh-68px)] items-start justify-center overflow-hidden md:min-h-screen md:items-center" style={{ 
@@ -15,8 +33,9 @@ const Hero = () => {
       backgroundSize: '24px 24px'
     }}>
       {/* Gold glow */}
-      <div className="absolute inset-0 pointer-events-none hero-gold-glow" style={{
-        background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)'
+      <div ref={glowRef} className="absolute inset-0 pointer-events-none hero-gold-glow will-change-transform" style={{
+        background: 'radial-gradient(ellipse 800px 600px at 50% 30%, rgba(149,124,61,0.1) 0%, transparent 70%)',
+        transition: 'transform 0.6s cubic-bezier(0.22,1,0.36,1)',
       }} />
       {/* Navy glow bottom-right */}
       <div className="absolute inset-0 pointer-events-none hero-navy-glow" style={{
@@ -45,7 +64,7 @@ const Hero = () => {
         <div className={`mx-auto mb-6 h-[1px] w-20 rounded-full bg-[#C9A84C]/30 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}
           style={{ transitionDelay: '0.3s' }}
         />
-        <h1 className="font-display font-bold text-[26px] sm:text-[40px] md:text-[72px] leading-[1.12] tracking-[-0.02em]" style={{ wordSpacing: '0.08em', maxWidth: '95vw', margin: '0 auto' }}>
+        <h1 className="font-display font-bold text-fluid-h1" style={{ wordSpacing: '0.06em', maxWidth: '95vw', margin: '0 auto' }}>
           {['Turn Your Business Into'].map((line, i) => (
             <span key={i} className={`block text-agency-text transition-all duration-700 ${i < 2 ? 'sm:whitespace-nowrap' : ''} ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
               style={{ transitionDelay: `${0.4 + i * 0.1}s` }}
@@ -54,9 +73,9 @@ const Hero = () => {
             </span>
           ))}
           <span className={`block relative inline-block transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-            style={{ transitionDelay: '0.6s', color: '#C9A84C' }}
+            style={{ transitionDelay: '0.6s' }}
           >
-             A Customer Magnet.
+             <span className="text-shimmer-gold">A Customer Magnet.</span>
             <svg className="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none">
               <path
                 d="M2 8 C40 2, 80 12, 120 6 S180 2, 198 8"
@@ -90,19 +109,13 @@ const Hero = () => {
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 sm:mt-10 transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{ transitionDelay: '0.8s' }}
         >
-          <button
+          <MagneticButton
             onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-            className="font-body font-semibold text-[14px] sm:text-[15px] h-11 sm:h-[52px] px-6 sm:px-8 rounded-[10px] transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto flex items-center justify-center gap-2"
+            className="font-body font-semibold text-[14px] sm:text-[15px] h-11 sm:h-[52px] px-6 sm:px-8 rounded-[10px] w-full sm:w-auto flex items-center justify-center gap-2"
             style={{
               background: 'linear-gradient(135deg, #957C3D, #C9A84C)',
               color: '#001020',
               boxShadow: '0 0 30px rgba(201,168,76,0.25)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 60px rgba(201,168,76,0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(201,168,76,0.25)';
             }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -110,7 +123,7 @@ const Hero = () => {
               <circle cx="12" cy="12" r="3"/>
             </svg>
             View Our Work
-          </button>
+          </MagneticButton>
           <button
             onClick={() => setWhatsappOpen(true)}
             className="font-body font-semibold text-[14px] sm:text-[15px] h-11 sm:h-[52px] px-6 sm:px-8 rounded-[10px] flex items-center justify-center transition-all duration-300 hover:bg-[rgba(201,168,76,0.08)] w-full sm:w-auto gap-2"
