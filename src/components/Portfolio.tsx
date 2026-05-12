@@ -38,15 +38,6 @@ const BrowserFrame = ({ url, src, title }: { url: string; src: string; title: st
             transformOrigin: 'top left',
           }}
         />
-        {/* Click overlay so the card opens the live site without breaking iframe scroll */}
-        <a
-          href={src}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Open ${title} in new tab`}
-          className="absolute inset-0 z-10"
-          style={{ background: 'transparent' }}
-        />
       </div>
     </div>
   );
