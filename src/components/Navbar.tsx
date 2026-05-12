@@ -78,16 +78,12 @@ const Navbar = () => {
         <div className="relative max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex flex-shrink-0 items-center" aria-label="Vichaar Co — Home">
-            <span
-              className="inline-flex items-center justify-center rounded-xl px-2.5 py-1.5"
-              style={{
-                background: '#000',
-                border: '1px solid rgba(201,168,76,0.35)',
-                boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
-              }}
-            >
-              <img src={vichaarLogo} alt="Vichaar Co" className="h-7 md:h-8 w-auto block" />
-            </span>
+            <img
+              src={isLight ? vichaarLogoLight : vichaarLogo}
+              alt="Vichaar Co"
+              className="h-10 md:h-12 w-auto block"
+              style={{ background: 'transparent' }}
+            />
           </a>
 
           {/* Center nav */}
