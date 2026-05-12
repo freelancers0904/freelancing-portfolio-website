@@ -34,16 +34,12 @@ const Footer = () => {
           {/* Logo */}
           <div className="sm:col-span-1 text-center sm:text-left">
             <a href="#" className="inline-flex items-center justify-center sm:justify-start" aria-label="Vichaar Co — Home">
-              <span
-                className="inline-flex items-center justify-center rounded-xl px-2.5 py-1.5"
-                style={{
-                  background: '#000',
-                  border: '1px solid rgba(201,168,76,0.35)',
-                  boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
-                }}
-              >
-                <img src={vichaarLogo} alt="Vichaar Co" className="h-8 w-auto block" />
-              </span>
+              <img
+                src={isLight ? vichaarLogoLight : vichaarLogo}
+                alt="Vichaar Co"
+                className="h-11 md:h-12 w-auto block"
+                style={{ background: 'transparent' }}
+              />
             </a>
             <p className="font-body text-xs md:text-[13px] text-agency-text-muted mt-3">We build systems. Not just websites.</p>
           </div>
