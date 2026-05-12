@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import WhatsAppSelector from './WhatsAppSelector';
+import vichaarLogo from '@/assets/vichaar-logo.jpeg';
 
 const navLinks = [
   { label: 'Work', href: '#portfolio' },
@@ -22,16 +23,19 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {/* Logo */}
           <div className="sm:col-span-1 text-center sm:text-left">
-            <a href="#" className="flex items-center gap-2.5 justify-center sm:justify-start" aria-label="Go to top">
-              <span className="relative w-2 h-2 rounded-[3px]" style={{ background: '#C9A84C' }}>
-                <span className="absolute inset-0 rounded-[3px] animate-pulse-dot" style={{ background: '#C9A84C' }} />
+            <a href="#" className="inline-flex items-center justify-center sm:justify-start" aria-label="Vichaar Co — Home">
+              <span
+                className="inline-flex items-center justify-center rounded-xl px-2.5 py-1.5"
+                style={{
+                  background: '#000',
+                  border: '1px solid rgba(201,168,76,0.35)',
+                  boxShadow: '0 4px 14px rgba(0,0,0,0.35)',
+                }}
+              >
+                <img src={vichaarLogo} alt="Vichaar Co" className="h-8 w-auto block" />
               </span>
-              <div className="flex flex-col leading-none">
-                <span className="text-[11px] tracking-[0.3em] uppercase text-agency-text-secondary">Palak + Mahesh</span>
-                <span className="font-semibold text-sm text-agency-text">Growth by design</span>
-              </div>
             </a>
-            <p className="font-body text-xs md:text-[13px] text-agency-text-muted mt-2">We build systems. Not just websites.</p>
+            <p className="font-body text-xs md:text-[13px] text-agency-text-muted mt-3">We build systems. Not just websites.</p>
           </div>
 
           {/* Quick Links */}
