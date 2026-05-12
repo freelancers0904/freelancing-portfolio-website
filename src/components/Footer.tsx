@@ -37,7 +37,7 @@ const Footer = () => {
               <img
                 src={isLight ? vichaarLogoLight : vichaarLogo}
                 alt="Vichaar Co"
-                className="h-13 md:h-14 w-auto block"
+                className="h-14 md:h-16 w-auto block"
                 style={{ background: 'transparent' }}
               />
             </a>
