@@ -13,6 +13,15 @@ const navLinks = [
 
 const Footer = () => {
   const [whatsappOpen, setWhatsappOpen] = useState(false);
+  const [isLight, setIsLight] = useState(false);
+
+  useEffect(() => {
+    const update = () => setIsLight(document.documentElement.classList.contains('light-mode'));
+    update();
+    const obs = new MutationObserver(update);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => obs.disconnect();
+  }, []);
 
   const handleClick = (href: string) => {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
