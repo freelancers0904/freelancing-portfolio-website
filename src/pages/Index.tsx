@@ -6,7 +6,7 @@ import Solutions from '@/components/Solutions';
 import WhyUs from '@/components/WhyUs';
 // import AIFeatures from '@/components/AIFeatures';
 import Portfolio from '@/components/Portfolio';
-import Pricing from '@/components/Pricing';
+// import Pricing from '@/components/Pricing';
 import Process from '@/components/Process';
 import FAQ from '@/components/FAQ';
 // import FinalCTA from '@/components/FinalCTA';
@@ -30,7 +30,7 @@ const Index = () => {
       <WhyUs />
       {/* <AIFeatures /> */}
       <Portfolio />
-      <Pricing />
+      {/* <Pricing /> */}
       <Process />
       <FAQ />
       {/* <FinalCTA /> */}
