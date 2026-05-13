@@ -181,7 +181,7 @@ const Portfolio = () => {
   const projects = projectsByCategory[activeCategory];
 
   return (
-    <section id="portfolio" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-secondary))' }}>
+    <section id="portfolio" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-primary))' }}>
       <div ref={sectionRef} className="max-w-[1100px] mx-auto px-6">
         <div className="text-center">
           <span className="scroll-hidden section-label">OUR WORK</span>

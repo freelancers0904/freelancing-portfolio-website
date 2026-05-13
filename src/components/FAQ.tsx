@@ -31,7 +31,7 @@ const FAQ = () => {
   const sectionRef = useScrollAnimation();
 
   return (
-    <section id="faq" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-secondary))' }}>
+    <section id="faq" className="py-28 md:py-32" style={{ background: 'hsl(var(--bg-primary))' }}>
       <div ref={sectionRef} className="max-w-6xl mx-auto px-6">
         <div className="text-center mx-auto max-w-3xl">
           <span className="scroll-hidden section-label">FREQUENTLY ASKED QUESTIONS</span>

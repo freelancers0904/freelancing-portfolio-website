@@ -5,9 +5,9 @@ import vichaarLogoLight from '@/assets/vichaar-logo-light-mode.png';
 
 const navLinks = [
   { label: 'Work', href: '#portfolio' },
-  { label: 'Services', href: '#services' },
+  { label: 'Services', href: '#solutions' },
   { label: 'Process', href: '#process' },
-  { label: 'Process', href: '#process' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ];
 
