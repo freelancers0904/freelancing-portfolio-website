@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, command }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -21,10 +21,12 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     minify: 'esbuild',
+    target: 'esnext',
     rollupOptions: {
       output: {
         manualChunks: {
           'vendor': ['react', 'react-dom'],
+          'react-query': ['@tanstack/react-query'],
           'ui-components': [
             '@radix-ui/react-accordion',
             '@radix-ui/react-alert-dialog',
@@ -35,6 +37,7 @@ export default defineConfig(({ mode }) => ({
             '@radix-ui/react-select',
             '@radix-ui/react-tabs',
           ],
+          'utils': ['clsx', 'tailwind-merge', 'zod', 'react-hook-form'],
         },
         chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/[name]-[hash].js',
@@ -50,13 +53,24 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    chunkSizeWarningLimit: 500,
+    chunkSizeWarningLimit: 600,
     sourcemap: false,
     reportCompressedSize: false,
     cssCodeSplit: true,
+    rollupInputOptions: {
+      treeshake: 'recommended',
+    },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom'],
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      '@tanstack/react-query',
+      'sonner',
+      'clsx',
+      'tailwind-merge',
+    ],
     exclude: ['lovable-tagger'],
   },
 }));

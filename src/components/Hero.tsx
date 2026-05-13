@@ -14,15 +14,27 @@ const Hero = () => {
     if (typeof window === 'undefined') return;
     if (window.matchMedia('(hover: none)').matches) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    
+    let lastX = 0, lastY = 0;
+    let rafId: number;
+    
     const handler = (e: MouseEvent) => {
-      const el = glowRef.current;
-      if (!el) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 24;
-      const y = (e.clientY / window.innerHeight - 0.5) * 24;
-      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      lastX = (e.clientX / window.innerWidth - 0.5) * 24;
+      lastY = (e.clientY / window.innerHeight - 0.5) * 24;
+      
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const el = glowRef.current;
+        if (!el) return;
+        el.style.transform = `translate3d(${lastX}px, ${lastY}px, 0)`;
+      });
     };
-    window.addEventListener('mousemove', handler);
-    return () => window.removeEventListener('mousemove', handler);
+    
+    window.addEventListener('mousemove', handler, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handler);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
 

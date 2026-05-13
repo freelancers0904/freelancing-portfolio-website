@@ -9,25 +9,35 @@ const SplashScreen = () => {
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return false;
     return sessionStorage.getItem(STORAGE_KEY) !== '1';
   });
-  const [fadeOut, setFadeOut] = useState(false);
+  const [phase, setPhase] = useState<'intro' | 'hold' | 'exit'>('intro');
 
   useEffect(() => {
     if (!show) return;
     document.body.style.overflow = 'hidden';
-    const t1 = window.setTimeout(() => setFadeOut(true), 1800);
-    const t2 = window.setTimeout(() => {
+    document.documentElement.style.scrollBehavior = 'auto';
+    
+    // Phase timeline: intro (0-0.8s) -> hold (0.8-2s) -> exit (2-2.7s)
+    const t1 = window.setTimeout(() => setPhase('hold'), 800);
+    const t2 = window.setTimeout(() => setPhase('exit'), 2000);
+    const t3 = window.setTimeout(() => {
       setShow(false);
       sessionStorage.setItem(STORAGE_KEY, '1');
       document.body.style.overflow = '';
-    }, 2600);
+      document.documentElement.style.scrollBehavior = '';
+    }, 2700);
+    
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
+      clearTimeout(t3);
       document.body.style.overflow = '';
+      document.documentElement.style.scrollBehavior = '';
     };
   }, [show]);
 
   if (!show) return null;
+
+  const isExiting = phase === 'exit';
 
   return (
     <div
@@ -36,45 +46,82 @@ const SplashScreen = () => {
         position: 'fixed',
         inset: 0,
         zIndex: 9999,
-        background: '#000',
+        background: 'linear-gradient(135deg, #000a1a 0%, #001621 100%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        opacity: fadeOut ? 0 : 1,
-        transform: fadeOut ? 'scale(1.04)' : 'scale(1)',
-        transition: 'opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1)',
-        pointerEvents: fadeOut ? 'none' : 'auto',
+        opacity: isExiting ? 0 : 1,
+        transform: isExiting ? 'scale(1.05)' : 'scale(1)',
+        transition: 'opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)',
+        pointerEvents: 'none',
+        willChange: 'opacity, transform',
       }}
     >
-      <img
-        src={vichaarLogo}
-        alt="Vichaar Co"
-        style={{
-          height: 'clamp(64px, 9vw, 110px)',
-          width: 'auto',
-          opacity: 0,
-          animation: 'splash-fade-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s forwards',
-        }}
-      />
+      {/* Animated background glow */}
       <div
         style={{
-          marginTop: 22,
-          fontFamily: 'Inter, sans-serif',
-          fontSize: 11,
-          letterSpacing: '4px',
-          color: '#C9A84C',
-          textTransform: 'uppercase',
-          opacity: 0,
-          animation: 'splash-fade-in 0.9s cubic-bezier(0.16,1,0.3,1) 0.55s forwards',
+          position: 'absolute',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%)',
+          animation: phase === 'intro' ? 'glow-pulse 2s ease-in-out forwards' : 'none',
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '24px',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
-        Where Ideas Meet Technology
+        {/* Logo */}
+        <img
+          src={vichaarLogo}
+          alt="Vichaar Co"
+          loading="eager"
+          decoding="sync"
+          style={{
+            height: 'clamp(80px, 12vw, 140px)',
+            width: 'auto',
+            filter: 'drop-shadow(0 0 30px rgba(201,168,76,0.3))',
+            opacity: 0,
+            animation: phase === 'intro' ? 'splash-fade-in 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards' : 'none',
+          }}
+        />
       </div>
+
       <style>{`
         @keyframes splash-fade-in {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
+          from { 
+            opacity: 0; 
+            transform: translateY(12px);
+          }
+          to { 
+            opacity: 1; 
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes glow-pulse {
+          0% {
+            transform: scale(0.8);
+            opacity: 0.6;
+          }
+          50% {
+            transform: scale(1);
+            opacity: 0.3;
+          }
+          100% {
+            transform: scale(1.2);
+            opacity: 0;
+          }
         }
       `}</style>
     </div>
